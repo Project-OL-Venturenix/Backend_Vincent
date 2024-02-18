@@ -77,7 +77,7 @@ public class UserController {
                userRequest.getMobile(), 
                userRequest.getEmail(), 
                userRequest.getUsername(), 
-               userRequest.getPassword(), 
+               encoder.encode(userRequest.getPassword()),
                userRequest.getCompany(), 
                userRequest.getTitle(),
                userRequest.getPy_experience(),

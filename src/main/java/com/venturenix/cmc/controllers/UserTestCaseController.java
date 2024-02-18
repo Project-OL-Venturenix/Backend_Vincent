@@ -73,6 +73,18 @@ public class UserTestCaseController {
 
 @PostMapping("/usertestcase/add")
   public ResponseEntity<?> addUserTestCase(@Valid @RequestBody UserTestCaseRequest usertestcaseRequest) {
+
+    System.out.println("getEventid = " +  usertestcaseRequest.getEventid());
+    System.out.println("getQuestionid = " +  usertestcaseRequest.getQuestionid());
+    System.out.println("getTestcaseid = " +  usertestcaseRequest.getTestcaseid());
+    System.out.println("getUserid = " +  usertestcaseRequest.getUserid());
+    System.out.println("getRuntimebysec = " +  usertestcaseRequest.getRuntimebysec());
+    System.out.println("getTestcasepassstatus = " +  usertestcaseRequest.getTestcasepassstatus());
+    System.out.println("getStatus = " +  usertestcaseRequest.getStatus());
+    System.out.println("getCreatedby = " +  usertestcaseRequest.getCreatedby());
+    System.out.println("getUpdatedby = " +  usertestcaseRequest.getUpdatedby());
+    
+
     UserTestCase usertestcase = new UserTestCase(
                usertestcaseRequest.getEventid(), 
                usertestcaseRequest.getQuestionid(), 

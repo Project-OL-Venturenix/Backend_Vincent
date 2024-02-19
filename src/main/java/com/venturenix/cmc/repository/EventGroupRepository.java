@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public interface EventGroupRepository extends JpaRepository<EventGroup, Long> {
 
-    Optional<EventGroup> findById(int id);
+    Optional<EventGroup> findById(Long id);
 
     List<EventGroup> findAll();
     

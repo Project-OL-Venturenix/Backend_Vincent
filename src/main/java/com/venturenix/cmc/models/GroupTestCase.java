@@ -9,12 +9,12 @@ import java.util.Date;
 public class GroupTestCase {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
-  private Integer event_id;
-  private Integer group_id;
-  private Integer user_id;
-  private Integer question_id;
-  private Integer testcase_id;
+  private Long id;
+  private Long eventid;
+  private Long groupid;
+  private Long userid;
+  private Long questionid;
+  private Long testcaseid;
   private Double run_time_by_sec;
   private String testcase_pass_status;
   private String status;
@@ -23,12 +23,17 @@ public class GroupTestCase {
   private LocalDateTime updateddate;
   private Integer updatedby;
 
-  public GroupTestCase(Integer event_id, Integer group_id, Integer question_id, Integer testcase_id, Integer user_id, Double run_time_by_sec, String testcase_pass_status, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
-    this.event_id = event_id;
-    this.group_id = group_id;
-    this.question_id = question_id;
-    this.testcase_id = testcase_id;
-    this.user_id = user_id;
+
+  public GroupTestCase() {
+    
+  }
+
+  public GroupTestCase(Long eventd, Long groupid, Long questionid, Long testcaseid, Long userid, Double run_time_by_sec, String testcase_pass_status, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
+    this.eventid = eventid;
+    this.groupid = groupid;
+    this.questionid = questionid;
+    this.testcaseid = testcaseid;
+    this.userid = userid;
     this.run_time_by_sec = run_time_by_sec;
     this.testcase_pass_status = testcase_pass_status;
     this.status = status;
@@ -39,52 +44,52 @@ public class GroupTestCase {
     
   }
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
-  public Integer getEventid() {
-    return event_id;
+  public Long getEventid() {
+    return eventid;
   }
 
-  public void setEventid(Integer event_id) {
-    this.event_id = event_id;
+  public void setEventid(Long eventid) {
+    this.eventid = eventid;
   }
 
-  public Integer getGroupid() {
-    return group_id;
+  public Long getGroupid() {
+    return groupid;
   }
 
-  public void setGroupid(Integer group_id) {
-    this.group_id = group_id;
+  public void setGroupid(Long groupid) {
+    this.groupid = groupid;
   }
 
-  public Integer getUserid() {
-    return user_id;
+  public Long getUserid() {
+    return userid;
   }
 
-  public void setUserid(Integer user_id) {
-    this.user_id = user_id;
+  public void setUserid(Long userid) {
+    this.userid = userid;
   }
 
-  public Integer getQuestionid() {
-    return question_id;
+  public Long getQuestionid() {
+    return questionid;
   }
 
-  public void setQuestionid(Integer question_id) {
-    this.question_id = question_id;
+  public void setQuestionid(Long questionid) {
+    this.questionid = questionid;
   }
 
-  public Integer getTestcaseid() {
-    return testcase_id;
+  public Long getTestcaseid() {
+    return testcaseid;
   }
 
-  public void setTestcaseid(Integer testcase_id) {
-    this.testcase_id = testcase_id;
+  public void setTestcaseid(Long testcaseid) {
+    this.testcaseid = testcaseid;
   }  
 
   public String getTestcasepassstatus() {

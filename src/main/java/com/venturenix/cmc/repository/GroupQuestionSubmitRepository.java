@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public interface GroupQuestionSubmitRepository extends JpaRepository<GroupQuestionSubmit, Long> {
 
-    Optional<GroupQuestionSubmit> findById(int id);
+    Optional<GroupQuestionSubmit> findById(Long id);
 
         List<GroupQuestionSubmit> findAll();
     

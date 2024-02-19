@@ -10,13 +10,13 @@ public class UserQuestionSubmitResponse {
   private String type = "Bearer";
   private Long id; 
 
-  private Integer eventid;
+  private Long eventid;
 
 
-  private Integer questionid;  
+  private Long questionid;  
 
 
-  private Integer userid;  
+  private Long userid;  
 
 
   private Double run_time_by_sec;  
@@ -37,7 +37,7 @@ public class UserQuestionSubmitResponse {
   private Integer updatedby;
   
   
-  public UserQuestionSubmitResponse(String accessToken, Long id, Integer eventid, Integer questionid, Integer userid, Double run_time_by_sec, LocalDateTime submit_time, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
+  public UserQuestionSubmitResponse(String accessToken, Long id, Long eventid, Long questionid, Long userid, Double run_time_by_sec, LocalDateTime submit_time, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
     this.token = accessToken;
     this.id = id;
     this.eventid = eventid;
@@ -77,27 +77,27 @@ public class UserQuestionSubmitResponse {
     this.id = id;
   }
 
-    public Integer getEventid() {
+    public Long getEventid() {
     return eventid;
   }
 
-  public void setEventid(Integer eventid) {
+  public void setEventid(Long eventid) {
     this.eventid = eventid;
   }
 
-   public Integer getQuestionid() {
+   public Long getQuestionid() {
     return questionid;
   }
 
-  public void setQuestionid(Integer questionid) {
+  public void setQuestionid(Long questionid) {
     this.questionid = questionid;
   }
 
-  public Integer getUserid() {
+  public Long getUserid() {
     return userid;
   }
 
-  public void setUserid(Integer userid) {
+  public void setUserid(Long userid) {
     this.userid = userid;
   }  
 

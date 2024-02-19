@@ -10,10 +10,10 @@ public class TestCaseResponse {
   private String type = "Bearer";
   private Long id; 
   
-  private Integer questionid;
+  private Long questionid;
 
   
-  private Integer testcasescoreid;
+  private Long testcasescoreid;
 
   
   private String testcaseresult;
@@ -34,7 +34,7 @@ public class TestCaseResponse {
   private Integer updatedby;
   
   
-  public TestCaseResponse(String accessToken, Long id, Integer questionid, Integer testcasescoreid, String testcasetext, String testcaseresult,  String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
+  public TestCaseResponse(String accessToken, Long id, Long questionid, Long testcasescoreid, String testcasetext, String testcaseresult,  String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
     this.token = accessToken;
     this.id = id;
     this.questionid = questionid;
@@ -73,19 +73,19 @@ public class TestCaseResponse {
     this.id = id;
   }
 
-  public Integer getQuestionid() {
+  public Long getQuestionid() {
     return questionid;
   }
 
-  public void setGroupid(Integer questionid) {
+  public void setGroupid(Long questionid) {
     this.questionid = questionid;
   }
 
-  public Integer getTestcasescoreid() {
+  public Long getTestcasescoreid() {
     return testcasescoreid;
   }
 
-  public void setTestcasescoreid(Integer testcasescoreid) {
+  public void setTestcasescoreid(Long testcasescoreid) {
     this.testcasescoreid = testcasescoreid;
   }
 

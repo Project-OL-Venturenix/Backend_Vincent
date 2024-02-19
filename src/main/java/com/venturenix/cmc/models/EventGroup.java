@@ -9,18 +9,24 @@ import java.util.Date;
 public class EventGroup {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
-  private Integer event_id;
-  private Integer group_id;
+  private Long id;
+  private Long eventid;
+  private Long groupid;
   private String status;
   private LocalDateTime createddate;
   private Integer createdby;
   private LocalDateTime updateddate;
   private Integer updatedby;  
 
-  public EventGroup(Integer event_id, Integer group_id, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
-    this.event_id = event_id;
-    this.group_id = group_id;
+
+  public EventGroup() {
+
+  }
+
+
+  public EventGroup(Long eventid, Long groupid, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
+    this.eventid = eventid;
+    this.groupid = groupid;
     this.status = status;
     this.createddate = createddate;
     this.createdby = createdby;
@@ -31,28 +37,28 @@ public class EventGroup {
 
 
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
-  public Integer getEventid() {
-    return event_id;
+  public Long getEventid() {
+    return eventid;
   }
 
-  public void setEventid(Integer event_id) {
-    this.event_id = event_id;
+  public void setEventid(Long eventid) {
+    this.eventid = eventid;
   }
 
-  public Integer getGroupid() {
-    return group_id;
+  public Long getGroupid() {
+    return groupid;
   }
 
-  public void setGroupid(Integer group_id) {
-    this.group_id = group_id;
+  public void setGroupid(Long groupid) {
+    this.groupid = groupid;
   }  
 
   public String getStatus() {

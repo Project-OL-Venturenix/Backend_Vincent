@@ -8,15 +8,15 @@ import java.util.Date;
 public class UserTestCaseResponse {
   private String token;
   private String type = "Bearer";
-  private Integer id; 
+  private Long id; 
  
-  private Integer eventid;
+  private Long eventid;
 
-  private Integer questionid;
+  private Long questionid;
 
-  private Integer testcaseid;
+  private Long testcaseid;
 
-  private Integer userid;
+  private Long userid;
 
   private Double run_time_by_sec;
 
@@ -36,7 +36,7 @@ public class UserTestCaseResponse {
   private Integer updatedby;
   
   
-  public UserTestCaseResponse(String accessToken, Integer id, Integer eventid, Integer questionid, Integer testcaseid, Integer userid, Double run_time_by_sec, String testcase_pass_status, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
+  public UserTestCaseResponse(String accessToken, Long id, Long eventid, Long questionid, Long testcaseid, Long userid, Double run_time_by_sec, String testcase_pass_status, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
     this.token = accessToken;
     this.id = id;
     this.eventid = eventid;
@@ -69,44 +69,44 @@ public class UserTestCaseResponse {
     this.type = tokenType;
   }
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
-  public Integer getEventid() {
+  public Long getEventid() {
     return eventid;
   }
 
-  public void setEventid(Integer eventid) {
+  public void setEventid(Long eventid) {
     this.eventid = eventid;
   }
 
 
-  public Integer getUserid() {
+  public Long getUserid() {
     return userid;
   }
 
-  public void setUserid(Integer userid) {
+  public void setUserid(Long userid) {
     this.userid = userid;
   }
 
-  public Integer getQuestionid() {
+  public Long getQuestionid() {
     return questionid;
   }
 
-  public void setQuestionid(Integer questionid) {
+  public void setQuestionid(Long questionid) {
     this.questionid = questionid;
   }
 
-  public Integer getTestcaseid() {
+  public Long getTestcaseid() {
     return testcaseid;
   }
 
-  public void setTestcaseid(Integer testcaseid) {
+  public void setTestcaseid(Long testcaseid) {
     this.testcaseid = testcaseid;
   }  
 

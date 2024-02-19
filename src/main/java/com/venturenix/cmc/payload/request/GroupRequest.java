@@ -10,10 +10,10 @@ import jakarta.validation.constraints.Size;
 
 public class GroupRequest {
 
-  @NotBlank
+  //@NotBlank
   private String name;
 
-  @NotBlank
+  //@NotBlank
   private String status;
 
   

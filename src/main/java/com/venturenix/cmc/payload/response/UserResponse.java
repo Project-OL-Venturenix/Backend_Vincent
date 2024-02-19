@@ -15,7 +15,7 @@ import java.util.Date;
 public class UserResponse {
   private String token;
   private String type = "Bearer";
-  private Integer id; 
+  private Long id; 
   private String firstname;
   private String lastname;
   private String mobile;
@@ -37,7 +37,7 @@ public class UserResponse {
   private Integer updatedby;
   
   
-  public UserResponse(String accessToken, Integer id, String firstname, String lastname, String mobile, String email, String username, String password, String company, String title, Integer py_experience, Integer jv_experience, Integer js_experience, Integer cs_experience, Integer sa_experience, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
+  public UserResponse(String accessToken, Long id, String firstname, String lastname, String mobile, String email, String username, String password, String company, String title, Integer py_experience, Integer jv_experience, Integer js_experience, Integer cs_experience, Integer sa_experience, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
     this.token = accessToken;
     this.id = id;
     this.firstname = firstname;
@@ -79,11 +79,11 @@ public class UserResponse {
     this.type = tokenType;
   }
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

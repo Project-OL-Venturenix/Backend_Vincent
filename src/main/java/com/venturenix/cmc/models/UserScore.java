@@ -9,10 +9,10 @@ import java.util.Date;
 public class UserScore {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
-  private Integer event_id;
-  private Integer user_id;
-  private Integer question_id;
+  private Long id;
+  private Long eventid;
+  private Long userid;
+  private Long questionid;
   private Integer testcase_total;
   private Integer testcase_pass_total;
   private Double testcase_score_total;
@@ -23,10 +23,15 @@ public class UserScore {
   private Integer updatedby;
 
 
-  public UserScore(Integer event_id, Integer user_id, Integer question_id, Integer testcase_total, Integer testcase_pass_total, Double testcase_score_total, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
-    this.event_id = event_id;
-    this.user_id = user_id;
-    this.question_id = question_id;
+  public UserScore() {
+    
+  }
+
+
+  public UserScore(Long eventid, Long userid, Long questionid, Integer testcase_total, Integer testcase_pass_total, Double testcase_score_total, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
+    this.eventid = eventid;
+    this.userid = userid;
+    this.questionid = questionid;
     this.testcase_total = testcase_total;
     this.testcase_pass_total = testcase_pass_total;
     this.testcase_score_total = testcase_score_total;
@@ -38,36 +43,36 @@ public class UserScore {
     
   }
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
-  public Integer getEventid() {
-    return event_id;
+  public Long getEventid() {
+    return eventid;
   }
 
-  public void setEventid(Integer event_id) {
-    this.event_id = event_id;
+  public void setEventid(Long eventid) {
+    this.eventid = eventid;
   }  
 
-  public Integer getUserid() {
-    return user_id;
+  public Long getUserid() {
+    return userid;
   }
 
-  public void setUserid(Integer user_id) {
-    this.user_id = user_id;
+  public void setUserid(Long userid) {
+    this.userid = userid;
   }
 
-  public Integer getQuestionid() {
-    return question_id;
+  public Long getQuestionid() {
+    return questionid;
   }
 
-  public void setQuestionid(Integer question_id) {
-    this.question_id = question_id;
+  public void setQuestionid(Long questionid) {
+    this.questionid = questionid;
   }  
 
   public Integer getTestcasetotal() {

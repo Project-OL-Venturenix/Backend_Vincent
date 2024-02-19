@@ -12,7 +12,7 @@ import jakarta.validation.constraints.*;
 public class Event {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
+  private Long id;
 
   @Size(min = 1, max = 20)
   private String name;
@@ -23,13 +23,13 @@ public class Event {
   
   private LocalDateTime createddate;
 
-  @Size(min = 1, max = 20)
+  //@Size(min = 1, max = 20)
   private Integer createdby;
 
   
   private LocalDateTime updateddate;
 
-  @Size(min = 1, max = 20)
+  //@Size(min = 1, max = 20)
   private Integer updatedby;
 
   public Event() {
@@ -45,11 +45,11 @@ public class Event {
     this.updatedby = updatedby;
     
   }
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

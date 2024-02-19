@@ -18,7 +18,7 @@ import jakarta.validation.constraints.Email;
 
 public class UserRequest {
 
- private Integer id;
+ private Long id;
 
   @NotBlank
   @Size(max = 20)
@@ -80,11 +80,11 @@ public class UserRequest {
 
   private Set<Role> roles = new HashSet<>();
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

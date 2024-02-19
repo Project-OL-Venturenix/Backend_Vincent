@@ -9,8 +9,8 @@ public class GroupUserResponse {
   private String token;
   private String type = "Bearer";
   private Long id; 
-  private Integer groupid;
-  private Integer userid;
+  private Long groupid;
+  private Long userid;
   private String status;
   
   private LocalDateTime createddate;
@@ -25,7 +25,7 @@ public class GroupUserResponse {
   private Integer updatedby;
   
   
-  public GroupUserResponse(String accessToken, Long id, Integer groupid, Integer userid, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
+  public GroupUserResponse(String accessToken, Long id, Long groupid, Long userid, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
     this.token = accessToken;
     this.id = id;
     this.groupid = groupid;
@@ -62,19 +62,19 @@ public class GroupUserResponse {
     this.id = id;
   }
 
-    public Integer getGroupid() {
+    public Long getGroupid() {
     return groupid;
   }
 
-  public void setGroupid(Integer groupid) {
+  public void setGroupid(Long groupid) {
     this.groupid = groupid;
   }
 
-    public Integer getUserid() {
+    public Long getUserid() {
     return userid;
   }
 
-  public void setUserid(Integer userid) {
+  public void setUserid(Long userid) {
     this.userid = userid;
   }  
 

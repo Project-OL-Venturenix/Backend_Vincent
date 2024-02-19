@@ -9,9 +9,9 @@ import java.util.Date;
 public class TestCase {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
-  private Integer questionid;
-  private Integer testcasescoreid;
+  private Long id;
+  private Long questionid;
+  private Long testcasescoreid;
   private String testcasetext;
   private String testcaseresult;
   private String status;
@@ -20,7 +20,11 @@ public class TestCase {
   private LocalDateTime updateddate;
   private Integer updatedby;  
 
-  public TestCase(Integer questionid, Integer testcasescoreid, String testcasetext, String testcaseresult, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
+  public TestCase() {
+    
+  }
+
+  public TestCase(Long questionid, Long testcasescoreid, String testcasetext, String testcaseresult, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
     this.questionid = questionid;
     this.testcasescoreid = testcasescoreid;
     this.testcasetext = testcasetext;
@@ -37,19 +41,19 @@ public class TestCase {
     this.testcasetext = testcasetext;
   }
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
-  public Integer getQuestionid() {
+  public Long getQuestionid() {
     return questionid;
   }
 
-  public void setQuestionid(Integer questionid) {
+  public void setQuestionid(Long questionid) {
     this.questionid = questionid;
   }  
 
@@ -69,11 +73,11 @@ public class TestCase {
     this.testcaseresult = testcaseresult;
   }
 
-  public Integer getTestcasescoreid() {
+  public Long getTestcasescoreid() {
     return testcasescoreid;
   }
 
-  public void setTestcasescoreid(Integer testcasescoreid) {
+  public void setTestcasescoreid(Long testcasescoreid) {
     this.testcasescoreid = testcasescoreid;
   }
 

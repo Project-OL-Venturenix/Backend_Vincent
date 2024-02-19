@@ -10,22 +10,22 @@ import jakarta.validation.constraints.Size;
 
 public class GroupTestCaseRequest {
 
-  @NotBlank
-  private Integer eventid;
-  @NotBlank
-  private Integer groupid;
-  @NotBlank
-  private Integer userid;
-  @NotBlank
-  private Integer questionid;
-  @NotBlank
-  private Integer testcaseid;
-  @NotBlank
+  //@NotBlank
+  private Long eventid;
+  //@NotBlank
+  private Long groupid;
+  //@NotBlank
+  private Long userid;
+  //@NotBlank
+  private Long questionid;
+  //@NotBlank
+  private Long testcaseid;
+  //@NotBlank
   private Double run_time_by_sec;
-  @NotBlank
+  //@NotBlank
   private String testcase_pass_status;      
 
-  @NotBlank
+  //@NotBlank
   private String status;
 
   
@@ -40,43 +40,43 @@ public class GroupTestCaseRequest {
   
   private Integer updatedby;
 
-   public Integer getEventid() {
+   public Long getEventid() {
     return eventid;
   }
 
-  public void setEventid(Integer eventid) {
+  public void setEventid(Long eventid) {
     this.eventid = eventid;
   }
 
-  public Integer getGroupid() {
+  public Long getGroupid() {
     return groupid;
   }
 
-  public void setGroupid(Integer groupid) {
+  public void setGroupid(Long groupid) {
     this.groupid = groupid;
   }
 
-  public Integer getUserid() {
+  public Long getUserid() {
     return userid;
   }
 
-  public void setUserid(Integer userid) {
+  public void setUserid(Long userid) {
     this.userid = userid;
   }
 
-  public Integer getQuestionid() {
+  public Long getQuestionid() {
     return questionid;
   }
 
-  public void setQuestionid(Integer questionid) {
+  public void setQuestionid(Long questionid) {
     this.questionid = questionid;
   }
 
-  public Integer getTestcaseid() {
+  public Long getTestcaseid() {
     return testcaseid;
   }
 
-  public void setTestcaseid(Integer testcaseid) {
+  public void setTestcaseid(Long testcaseid) {
     this.testcaseid = testcaseid;
   }  
 

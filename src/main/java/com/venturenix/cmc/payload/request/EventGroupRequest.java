@@ -10,16 +10,16 @@ import jakarta.validation.constraints.Size;
 
 public class EventGroupRequest {
 
-  @NotBlank
+  //@NotBlank
   private String name;
 
-  @NotBlank
-  private Integer groupid;
+  //@NotBlank
+  private Long groupid;
 
-  @NotBlank
-  private Integer eventid;
+  //@NotBlank
+  private Long eventid;
 
-  @NotBlank
+  //@NotBlank
   private String status;
 
   
@@ -34,19 +34,19 @@ public class EventGroupRequest {
   
   private Integer updatedby;
 
-  public Integer getGroupid() {
+  public Long getGroupid() {
     return groupid;
   }
 
-  public void setGroupid(Integer groupid) {
+  public void setGroupid(Long groupid) {
     this.groupid = groupid;
   }
 
-  public Integer getEventid() {
+  public Long getEventid() {
     return eventid;
   }
 
-  public void setEventid(Integer eventid) {
+  public void setEventid(Long eventid) {
     this.eventid = eventid;
   }
 

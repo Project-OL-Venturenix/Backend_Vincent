@@ -10,13 +10,13 @@ import jakarta.validation.constraints.Size;
 
 public class QuestionRequest {
 
-  @NotBlank
+  //@NotBlank
   private String questiontext;
 
-  @NotBlank
+  //@NotBlank
   private String answertext;
 
-  @NotBlank
+  //@NotBlank
   private String status;
 
   

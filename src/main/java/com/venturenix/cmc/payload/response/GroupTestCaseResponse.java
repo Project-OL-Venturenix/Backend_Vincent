@@ -8,19 +8,19 @@ import java.util.Date;
 public class GroupTestCaseResponse {
   private String token;
   private String type = "Bearer";
-  private Integer id; 
+  private Long id; 
  
-  private Integer eventid;
-
- 
-  private Integer groupid;
+  private Long eventid;
 
  
-  private Integer questionid;
+  private Long groupid;
 
-  private Integer testcaseid;
+ 
+  private Long questionid;
 
-  private Integer userid;
+  private Long testcaseid;
+
+  private Long userid;
 
   private Double run_time_by_sec;
 
@@ -40,7 +40,7 @@ public class GroupTestCaseResponse {
   private Integer updatedby;
   
   
-  public GroupTestCaseResponse(String accessToken, Integer id, Integer eventid, Integer groupid, Integer questionid, Integer testcaseid, Integer userid, Double run_time_by_sec, String testcase_pass_status, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
+  public GroupTestCaseResponse(String accessToken, Long id, Long eventid, Long groupid, Long questionid, Long testcaseid, Long userid, Double run_time_by_sec, String testcase_pass_status, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
     this.token = accessToken;
     this.id = id;
     this.eventid = eventid;
@@ -74,51 +74,51 @@ public class GroupTestCaseResponse {
     this.type = tokenType;
   }
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
-  public Integer getEventid() {
+  public Long getEventid() {
     return eventid;
   }
 
-  public void setEventid(Integer eventid) {
+  public void setEventid(Long eventid) {
     this.eventid = eventid;
   }
 
-  public Integer getGroupid() {
+  public Long getGroupid() {
     return groupid;
   }
 
-  public void setGroupid(Integer groupid) {
+  public void setGroupid(Long groupid) {
     this.groupid = groupid;
   }
 
-  public Integer getUserid() {
+  public Long getUserid() {
     return userid;
   }
 
-  public void setUserid(Integer userid) {
+  public void setUserid(Long userid) {
     this.userid = userid;
   }
 
-  public Integer getQuestionid() {
+  public Long getQuestionid() {
     return questionid;
   }
 
-  public void setQuestionid(Integer questionid) {
+  public void setQuestionid(Long questionid) {
     this.questionid = questionid;
   }
 
-  public Integer getTestcaseid() {
+  public Long getTestcaseid() {
     return testcaseid;
   }
 
-  public void setTestcaseid(Integer testcaseid) {
+  public void setTestcaseid(Long testcaseid) {
     this.testcaseid = testcaseid;
   }  
 

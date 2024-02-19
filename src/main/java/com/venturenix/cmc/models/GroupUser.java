@@ -9,17 +9,20 @@ import java.util.Date;
 public class GroupUser {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
-  private Integer groupid;
-  private Integer userid;
+  private Long id;
+  private Long groupid;
+  private Long userid;
   private String status;
   private LocalDateTime createddate;
   private Integer createdby;
   private LocalDateTime updateddate;
   private Integer updatedby;
 
+  public GroupUser() {
+    
+  }
 
-  public GroupUser(Integer groupid, Integer userid, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
+  public GroupUser(Long groupid, Long userid, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
     this.groupid = groupid;
     this.userid = userid;
     this.status = status;
@@ -30,27 +33,27 @@ public class GroupUser {
     
   }
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
-  public Integer getGroupid() {
+  public Long getGroupid() {
     return groupid;
   }
 
-  public void setGroupid(Integer groupid) {
+  public void setGroupid(Long groupid) {
     this.groupid = groupid;
   }
 
-  public Integer getUserid() {
+  public Long getUserid() {
     return userid;
   }
 
-  public void setUserid(Integer userid) {
+  public void setUserid(Long userid) {
     this.userid = userid;
   }  
 

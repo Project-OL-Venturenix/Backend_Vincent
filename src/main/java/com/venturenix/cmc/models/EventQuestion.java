@@ -9,18 +9,24 @@ import java.util.Date;
 public class EventQuestion {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
-  private Integer event_id;
-  private Integer question_id;
+  private Long id;
+  private Long eventid;
+  private Long questionid;
   private String status;
   private LocalDateTime createddate;
   private Integer createdby;
   private LocalDateTime updateddate;
   private Integer updatedby;  
 
-  public EventQuestion(Integer event_id, Integer question_id, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
-    this.event_id = event_id;
-    this.question_id = question_id;
+
+  public EventQuestion() {
+
+  }
+
+
+  public EventQuestion(Long eventid, Long questionid, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
+    this.eventid = eventid;
+    this.questionid = questionid;
     this.status = status;
     this.createddate = createddate;
     this.createdby = createdby;
@@ -31,28 +37,28 @@ public class EventQuestion {
 
 
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
-  public Integer getEventid() {
-    return event_id;
+  public Long getEventid() {
+    return eventid;
   }
 
-  public void setEventid(Integer event_id) {
-    this.event_id = event_id;
+  public void setEventid(Long eventid) {
+    this.eventid = eventid;
   }
 
-  public Integer getQuestionid() {
-    return question_id;
+  public Long getQuestionid() {
+    return questionid;
   }
 
-  public void setQuestionid(Integer question_id) {
-    this.question_id = question_id;
+  public void setQuestionid(Long questionid) {
+    this.questionid = questionid;
   }  
 
   public String getStatus() {

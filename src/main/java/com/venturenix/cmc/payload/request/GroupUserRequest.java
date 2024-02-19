@@ -10,13 +10,13 @@ import jakarta.validation.constraints.Size;
 
 public class GroupUserRequest {
 
-  @NotBlank
-  private Integer groupid;
+  //@NotBlank
+  private Long groupid;
 
-  @NotBlank
-  private Integer userid;
+  //@NotBlank
+  private Long userid;
 
-  @NotBlank
+  //@NotBlank
   private String status;
 
   
@@ -31,19 +31,19 @@ public class GroupUserRequest {
   
   private Integer updatedby;
 
-  public Integer getGroupid() {
+  public Long getGroupid() {
     return groupid;
   }
 
-  public void setGroupid(Integer groupid) {
+  public void setGroupid(Long groupid) {
     this.groupid = groupid;
   }
 
-  public Integer getUserid() {
+  public Long getUserid() {
     return userid;
   }
 
-  public void setUserid(Integer userid) {
+  public void setUserid(Long userid) {
     this.userid = userid;
   }  
 

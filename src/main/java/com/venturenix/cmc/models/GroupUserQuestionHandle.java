@@ -9,22 +9,26 @@ import java.util.Date;
 public class GroupUserQuestionHandle {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
-  private Integer event_id;
-  private Integer group_id;
-  private String user_list;
-  private Integer question_id;
+  private Long id;
+  private Long eventid;
+  private Long groupid;
+  private String userlist;
+  private Long questionid;
   private String status;
   private LocalDateTime createddate;
   private Integer createdby;
   private LocalDateTime updateddate;
   private Integer updatedby;
 
-  public GroupUserQuestionHandle(Integer event_id, Integer group_id, String user_list, Integer question_id, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
-    this.event_id = event_id;
-    this.group_id = group_id;
-    this.user_list = user_list;
-    this.question_id = question_id;
+  public GroupUserQuestionHandle() {
+    
+  }
+
+  public GroupUserQuestionHandle(Long eventid, Long groupid, String userlist, Long questionid, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
+    this.eventid = eventid;
+    this.groupid = groupid;
+    this.userlist = userlist;
+    this.questionid = questionid;
     this.status = status;
     this.createddate = createddate;
     this.createdby = createdby;
@@ -33,44 +37,44 @@ public class GroupUserQuestionHandle {
     
   }
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
-  public Integer getEventid() {
-    return event_id;
+  public Long getEventid() {
+    return eventid;
   }
 
-  public void setEventid(Integer event_id) {
-    this.event_id = event_id;
+  public void setEventid(Long eventid) {
+    this.eventid = eventid;
   }
 
-  public Integer getGroupId() {
-    return group_id;
+  public Long getGroupId() {
+    return groupid;
   }
 
-  public void setGroupid(Integer group_id) {
-    this.group_id = group_id;
+  public void setGroupid(Long groupid) {
+    this.groupid = groupid;
   }
 
   public String getUserlist() {
-    return user_list;
+    return userlist;
   }
 
-  public void setUserList(String user_list) {
-    this.user_list = user_list;
+  public void setUserList(String userlist) {
+    this.userlist = userlist;
   }  
 
-  public Integer getQuestionid() {
-    return question_id;
+  public Long getQuestionid() {
+    return questionid;
   }
 
-  public void setQuestionid(Integer question_id) {
-    this.question_id = question_id;
+  public void setQuestionid(Long questionid) {
+    this.questionid = questionid;
   }
 
   

@@ -9,8 +9,8 @@ public class EventQuestionResponse {
   private String token;
   private String type = "Bearer";
   private Long id; 
-  private Integer questionid;
-  private Integer eventid;
+  private Long questionid;
+  private Long eventid;
   private String status;
   
   private LocalDateTime createddate;
@@ -25,7 +25,7 @@ public class EventQuestionResponse {
   private Integer updatedby;
   
   
-  public EventQuestionResponse(String accessToken, Long id, Integer questionid, Integer eventid, String name, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
+  public EventQuestionResponse(String accessToken, Long id, Long questionid, Long eventid, String name, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
     this.token = accessToken;
     this.id = id;
     this.questionid = questionid;
@@ -62,19 +62,19 @@ public class EventQuestionResponse {
     this.id = id;
   }
 
-  public Integer getQuestionid() {
+  public Long getQuestionid() {
     return questionid;
   }
 
-  public void setQuestionid(Integer questionid) {
+  public void setQuestionid(Long questionid) {
     this.questionid = questionid;
   }  
 
-  public Integer getEventid() {
+  public Long getEventid() {
     return eventid;
   }
 
-  public void setEventid(Integer eventid) {
+  public void setEventid(Long eventid) {
     this.eventid = eventid;
   }
 

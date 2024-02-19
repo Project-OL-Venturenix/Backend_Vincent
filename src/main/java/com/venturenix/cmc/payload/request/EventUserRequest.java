@@ -11,13 +11,13 @@ import jakarta.validation.constraints.Size;
 public class EventUserRequest {
 
 
-  @NotBlank
-  private Integer userid;
+  //@NotBlank
+  private Long userid;
 
-  @NotBlank
-  private Integer eventid;
+  //@NotBlank
+  private Long eventid;
 
-  @NotBlank
+  //@NotBlank
   private String status;
 
   
@@ -32,19 +32,19 @@ public class EventUserRequest {
   
   private Integer updatedby;
 
-  public Integer getUserid() {
+  public Long getUserid() {
     return userid;
   }
 
-  public void setUserid(Integer userid) {
+  public void setUserid(Long userid) {
     this.userid = userid;
   }
 
-  public Integer getEventid() {
+  public Long getEventid() {
     return eventid;
   }
 
-  public void setEventid(Integer eventid) {
+  public void setEventid(Long eventid) {
     this.eventid = eventid;
   }
 

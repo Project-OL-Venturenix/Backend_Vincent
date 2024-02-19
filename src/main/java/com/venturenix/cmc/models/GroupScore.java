@@ -9,10 +9,10 @@ import java.util.Date;
 public class GroupScore {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
-  private Integer event_id;
-  private Integer group_id;
-  private Integer question_id;
+  private Long id;
+  private Long eventid;
+  private Long groupid;
+  private Long questionid;
   private Integer testcase_total;
   private Integer testcase_pass_total;
   private Double testcase_score_total;
@@ -22,10 +22,15 @@ public class GroupScore {
   private LocalDateTime updateddate;
   private Integer updatedby;
 
-  public GroupScore(Integer event_id, Integer group_id, Integer question_id, Integer testcase_pass_total, Double testcase_score_total, Integer testcase_total, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
-    this.event_id = event_id;
-    this.group_id = group_id;
-    this.question_id = question_id;
+
+  public GroupScore() {
+    
+  }
+
+  public GroupScore(Long eventid, Long groupid, Long questionid, Integer testcase_pass_total, Double testcase_score_total, Integer testcase_total, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
+    this.eventid = eventid;
+    this.groupid = groupid;
+    this.questionid = questionid;
     this.testcase_pass_total = testcase_pass_total;
     this.testcase_score_total = testcase_score_total;
     this.testcase_total = testcase_total;
@@ -37,36 +42,36 @@ public class GroupScore {
     
   }
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
-  public Integer getEventid() {
-    return event_id;
+  public Long getEventid() {
+    return eventid;
   }
 
-  public void setEventid(Integer event_id) {
-    this.event_id = event_id;
+  public void setEventid(Long eventid) {
+    this.eventid = eventid;
   }  
 
-  public Integer getGroupid() {
-    return group_id;
+  public Long getGroupid() {
+    return groupid;
   }
 
-  public void setGroupid(Integer group_id) {
-    this.group_id = group_id;
+  public void setGroupid(Long groupid) {
+    this.groupid = groupid;
   }
 
-  public Integer getQuestionid() {
-    return question_id;
+  public Long getQuestionid() {
+    return questionid;
   }
 
-  public void setQuestionid(Integer question_id) {
-    this.question_id = question_id;
+  public void setQuestionid(Long questionid) {
+    this.questionid = questionid;
   }  
 
   public Integer getTestcasetotal() {

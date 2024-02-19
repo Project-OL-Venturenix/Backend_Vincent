@@ -10,19 +10,19 @@ import jakarta.validation.constraints.Size;
 
 public class TestCaseRequest {
 
-  @NotBlank
-  private Integer questionid;
+  //@NotBlank
+  private Long questionid;
 
-  @NotBlank
-  private Integer testcasescoreid;
+  //@NotBlank
+  private Long testcasescoreid;
 
-  @NotBlank
+  //@NotBlank
   private String testcaseresult;
 
-  @NotBlank
+  //@NotBlank
   private String testcasetext;
 
-  @NotBlank
+  //@NotBlank
   private String status;
 
   
@@ -37,19 +37,19 @@ public class TestCaseRequest {
   
   private Integer updatedby;
 
-  public Integer getQuestionid() {
+  public Long getQuestionid() {
     return questionid;
   }
 
-  public void setGroupid(Integer questionid) {
+  public void setGroupid(Long questionid) {
     this.questionid = questionid;
   }
 
-  public Integer getTestcasescoreid() {
+  public Long getTestcasescoreid() {
     return testcasescoreid;
   }
 
-  public void setTestcasescoreid(Integer testcasescoreid) {
+  public void setTestcasescoreid(Long testcasescoreid) {
     this.testcasescoreid = testcasescoreid;
   }
 

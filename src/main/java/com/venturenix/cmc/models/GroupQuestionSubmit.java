@@ -9,11 +9,11 @@ import java.util.Date;
 public class GroupQuestionSubmit {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
-  private Integer event_id;
-  private Integer group_id;
-  private Integer user_id;
-  private Integer question_id;
+  private Long id;
+  private Long eventid;
+  private Long groupid;
+  private Long userid;
+  private Long questionid;
   private LocalDateTime submit_time;
   private Double run_time_by_sec;
   private String status;
@@ -23,11 +23,15 @@ public class GroupQuestionSubmit {
   private Integer updatedby;
 
 
-  public GroupQuestionSubmit(Integer event_id, Integer group_id,Integer user_id, Integer question_id,LocalDateTime submit_time, Double run_time_by_sec,String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
-    this.event_id = event_id;
-    this.group_id = group_id;
-    this.user_id = user_id;
-    this.question_id = question_id;
+  public GroupQuestionSubmit() {
+    
+  }
+
+  public GroupQuestionSubmit(Long eventid, Long groupid,Long userid, Long questionid,LocalDateTime submit_time, Double run_time_by_sec,String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
+    this.eventid = eventid;
+    this.groupid = groupid;
+    this.userid = userid;
+    this.questionid = questionid;
     this.submit_time = submit_time;
     this.run_time_by_sec = run_time_by_sec;
     this.status = status;
@@ -38,44 +42,44 @@ public class GroupQuestionSubmit {
     
   }
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
-  public Integer getEventid() {
-    return event_id;
+  public Long getEventid() {
+    return eventid;
   }
 
-  public void setEventid(Integer event_id) {
-    this.event_id = event_id;
+  public void setEventid(Long eventid) {
+    this.eventid = eventid;
   }
 
-  public Integer getGroupid() {
-    return group_id;
+  public Long getGroupid() {
+    return groupid;
   }
 
-  public void setGroupid(Integer group_id) {
-    this.group_id = group_id;
+  public void setGroupid(Long groupid) {
+    this.groupid = groupid;
   }
 
-  public Integer getUserid() {
-    return user_id;
+  public Long getUserid() {
+    return userid;
   }
 
-  public void setUserid(Integer user_id) {
-    this.user_id = user_id;
+  public void setUserid(Long userid) {
+    this.userid = userid;
   }  
 
-  public Integer getQuestionid() {
-    return question_id;
+  public Long getQuestionid() {
+    return questionid;
   }
 
-  public void setQuestionid(Integer question_id) {
-    this.question_id = question_id;
+  public void setQuestionid(Long questionid) {
+    this.questionid = questionid;
   }
 
   public LocalDateTime getSubmittime() {

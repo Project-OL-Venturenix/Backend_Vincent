@@ -9,18 +9,22 @@ import java.util.Date;
 public class EventUser {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
-  private Integer event_id;
-  private Integer user_id;
+  private Long id;
+  private Long eventid;
+  private Long userid;
   private String status;
   private LocalDateTime createddate;
   private Integer createdby;
   private LocalDateTime updateddate;
   private Integer updatedby;  
 
-  public EventUser(Integer event_id, Integer user_id, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
-    this.event_id = event_id;
-    this.user_id = user_id;
+  public EventUser() {
+
+  }
+
+  public EventUser(Long eventid, Long userid, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
+    this.eventid = eventid;
+    this.userid = userid;
     this.status = status;
     this.createddate = createddate;
     this.createdby = createdby;
@@ -29,28 +33,28 @@ public class EventUser {
     
   }
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
-  public Integer getEventid() {
-    return event_id;
+  public Long getEventid() {
+    return eventid;
   }
 
-  public void setEventid(Integer event_id) {
-    this.event_id = event_id;
+  public void setEventid(Long eventid) {
+    this.eventid = eventid;
   }
 
-  public Integer getUserid() {
-    return user_id;
+  public Long getUserid() {
+    return userid;
   }
 
-  public void setUserid(Integer user_id) {
-    this.user_id = user_id;
+  public void setUserid(Long userid) {
+    this.userid = userid;
   }  
 
   public String getStatus() {

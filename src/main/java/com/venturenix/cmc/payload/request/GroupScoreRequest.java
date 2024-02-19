@@ -10,25 +10,25 @@ import jakarta.validation.constraints.Size;
 
 public class GroupScoreRequest {
 
-  @NotBlank
-  private Integer eventid;
+  //@NotBlank
+  private Long eventid;
 
-  @NotBlank
-  private Integer groupid;
+  //@NotBlank
+  private Long groupid;
 
-  @NotBlank
-  private Integer questionid;
+  //@NotBlank
+  private Long questionid;
 
-  @NotBlank
+  //@NotBlank
   private Integer testcase_pass_total;
 
-  @NotBlank
+  //@NotBlank
   private Double testcase_score_total;
 
-  @NotBlank
+  //@NotBlank
   private Integer testcase_total;          
 
-  @NotBlank
+  //@NotBlank
   private String status;
 
   
@@ -43,27 +43,27 @@ public class GroupScoreRequest {
   
   private Integer updatedby;
 
-  public Integer getEventid() {
+  public Long getEventid() {
     return eventid;
   }
 
-  public void setEventid(Integer eventid) {
+  public void setEventid(Long eventid) {
     this.eventid = eventid;
   }  
 
-  public Integer getGroupid() {
+  public Long getGroupid() {
     return groupid;
   }
 
-  public void setGroupid(Integer groupid) {
+  public void setGroupid(Long groupid) {
     this.groupid = groupid;
   }
 
-  public Integer getQuestionid() {
+  public Long getQuestionid() {
     return questionid;
   }
 
-  public void setQuestionid(Integer questionid) {
+  public void setQuestionid(Long questionid) {
     this.questionid = questionid;
   }  
 

@@ -26,7 +26,7 @@ public class GroupQuestionSubmitRequest {
   private Long userid;  
 
   //@NotBlank
-  private Double run_time_by_sec;  
+  private Double run_time_by_msec;  
 
   //@NotBlank
   private LocalDateTime submit_time;  
@@ -79,12 +79,12 @@ public class GroupQuestionSubmitRequest {
     this.userid = userid;
   }  
 
-  public Double getRuntimebysec() {
-    return run_time_by_sec;
+  public Double getRuntimebymsec() {
+    return run_time_by_msec;
   }
 
-  public void setRuntimebysec(Double run_time_by_sec) {
-    this.run_time_by_sec = run_time_by_sec;
+  public void setRuntimebymsec(Double run_time_by_msec) {
+    this.run_time_by_msec = run_time_by_msec;
   }  
 
   public LocalDateTime getSubmittime() {

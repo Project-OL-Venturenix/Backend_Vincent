@@ -14,8 +14,6 @@ public interface UserTestCaseRepository extends JpaRepository<UserTestCase, Long
 
     Optional<UserTestCase> findById(Long id);
 
-    
-
     List<UserTestCase> findAll();
     
     

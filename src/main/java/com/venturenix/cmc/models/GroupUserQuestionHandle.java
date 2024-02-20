@@ -53,7 +53,7 @@ public class GroupUserQuestionHandle {
     this.eventid = eventid;
   }
 
-  public Long getGroupId() {
+  public Long getGroupid() {
     return groupid;
   }
 
@@ -65,7 +65,7 @@ public class GroupUserQuestionHandle {
     return userlist;
   }
 
-  public void setUserList(String userlist) {
+  public void setUserlist(String userlist) {
     this.userlist = userlist;
   }  
 

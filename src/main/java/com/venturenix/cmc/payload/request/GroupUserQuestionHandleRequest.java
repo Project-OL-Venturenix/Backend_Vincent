@@ -20,7 +20,7 @@ public class GroupUserQuestionHandleRequest {
   private Long groupid;
 
   //@NotBlank
-  private Long userlist;  
+  private String userlist;  
 
   //@NotBlank
   private Long questionid;  

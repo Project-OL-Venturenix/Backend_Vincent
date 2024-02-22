@@ -71,7 +71,7 @@ public class GroupUserController {
   GroupUserRepository groupuserRepository;
 
 
-@PostMapping("/groupuser/add")
+@PostMapping("/groupusers/add")
   public ResponseEntity<?> addGroupUser(@Valid @RequestBody GroupUserRequest groupuserRequest) {
     GroupUser groupuser = new GroupUser(
                groupuserRequest.getGroupid(), 
@@ -103,7 +103,7 @@ public class GroupUserController {
     
   }
 
- @GetMapping("/groupuser/{id}")
+ @GetMapping("/groupusers/{id}")
   public ResponseEntity<GroupUser> getGroupUserById(@PathVariable("id") long id) {
     Optional<GroupUser> groupuserData = groupuserRepository.findById(id);
     if (groupuserData.isPresent()) {
@@ -113,7 +113,7 @@ public class GroupUserController {
     }
   }
 
-  @PutMapping("/groupuser/{id}")
+  @PutMapping("/groupusers/{id}")
   public ResponseEntity<GroupUser> updateGroupUser(@PathVariable("id") long id, @RequestBody GroupUser groupuser) {
     Optional<GroupUser> groupuserData = groupuserRepository.findById(id);
 
@@ -130,7 +130,7 @@ public class GroupUserController {
     }
   }
 
-  @DeleteMapping("/groupuser/{id}")
+  @DeleteMapping("/groupusers/{id}")
   public ResponseEntity<?> deleteGroupUser(@PathVariable("id") long id) {
     try {
       groupuserRepository.deleteById(id);

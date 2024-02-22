@@ -71,7 +71,7 @@ public class EventGroupController {
   EventGroupRepository eventGroupRepository;
 
 
-@PostMapping("/eventgroup/add")
+@PostMapping("/eventgroups/add")
   public ResponseEntity<?> addEventGroup(@Valid @RequestBody EventGroupRequest eventGroupRequest) {
     EventGroup eventGroup = new EventGroup(
                eventGroupRequest.getGroupid(),
@@ -103,7 +103,7 @@ public class EventGroupController {
     
   }
 
- @GetMapping("/eventgroup/{id}")
+ @GetMapping("/eventgroups/{id}")
   public ResponseEntity<EventGroup> getEventGroupById(@PathVariable("id") long id) {
     Optional<EventGroup> eventGroupData = eventGroupRepository.findById(id);
     if (eventGroupData.isPresent()) {
@@ -113,7 +113,7 @@ public class EventGroupController {
     }
   }
 
-  @PutMapping("/eventgroup/{id}")
+  @PutMapping("/eventgroups/{id}")
   public ResponseEntity<EventGroup> updateEventGroup(@PathVariable("id") long id, @RequestBody EventGroup eventGroup) {
     Optional<EventGroup> eventGroupData = eventGroupRepository.findById(id);
 
@@ -130,7 +130,7 @@ public class EventGroupController {
     }
   }
 
-  @DeleteMapping("/eventgroup/{id}")
+  @DeleteMapping("/eventgroups/{id}")
   public ResponseEntity<?> deleteEventGroup(@PathVariable("id") long id) {
     try {
       eventGroupRepository.deleteById(id);

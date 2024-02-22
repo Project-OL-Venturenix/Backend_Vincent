@@ -71,7 +71,7 @@ public class GroupScoreController {
   GroupScoreRepository groupscoreRepository;
 
 
-@PostMapping("/groupscore/add")
+@PostMapping("/groupscores/add")
   public ResponseEntity<?> addGroupScore(@Valid @RequestBody GroupScoreRequest groupscoreRequest) {
     GroupScore groupscore = new GroupScore(
                groupscoreRequest.getEventid(), 
@@ -107,7 +107,7 @@ public class GroupScoreController {
     
   }
 
- @GetMapping("/groupscore/{id}")
+ @GetMapping("/groupscores/{id}")
   public ResponseEntity<GroupScore> getGroupScoreById(@PathVariable("id") long id) {
     Optional<GroupScore> groupscoreData = groupscoreRepository.findById(id);
     if (groupscoreData.isPresent()) {
@@ -117,7 +117,7 @@ public class GroupScoreController {
     }
   }
 
-  @PutMapping("/groupscore/{id}")
+  @PutMapping("/groupscores/{id}")
   public ResponseEntity<GroupScore> updateGroupScore(@PathVariable("id") long id, @RequestBody GroupScore groupscore) {
     Optional<GroupScore> groupscoreData = groupscoreRepository.findById(id);
 
@@ -138,7 +138,7 @@ public class GroupScoreController {
     }
   }
 
-  @DeleteMapping("/groupscore/{id}")
+  @DeleteMapping("/groupscores/{id}")
   public ResponseEntity<?> deleteGroupScore(@PathVariable("id") long id) {
     try {
       groupscoreRepository.deleteById(id);

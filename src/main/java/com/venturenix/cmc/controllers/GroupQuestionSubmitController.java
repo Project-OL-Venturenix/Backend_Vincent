@@ -71,7 +71,7 @@ public class GroupQuestionSubmitController {
   GroupQuestionSubmitRepository groupquestionsubmitRepository;
 
 
-@PostMapping("/groupquestionsubmit/add")
+@PostMapping("/groupquestionsubmits/add")
   public ResponseEntity<?> addGroupQuestionSubmit(@Valid @RequestBody GroupQuestionSubmitRequest groupquestionsubmitRequest) {
     GroupQuestionSubmit groupquestionsubmit = new GroupQuestionSubmit(
                groupquestionsubmitRequest.getEventid(), 
@@ -107,7 +107,7 @@ public class GroupQuestionSubmitController {
     
   }
 
- @GetMapping("/groupquestionsubmit/{id}")
+ @GetMapping("/groupquestionsubmits/{id}")
   public ResponseEntity<GroupQuestionSubmit> getGroupQuestionSubmitById(@PathVariable("id") long id) {
     Optional<GroupQuestionSubmit> groupquestionsubmitData = groupquestionsubmitRepository.findById(id);
     if (groupquestionsubmitData.isPresent()) {
@@ -117,7 +117,7 @@ public class GroupQuestionSubmitController {
     }
   }
 
-  @PutMapping("/groupquestionsubmit/{id}")
+  @PutMapping("/groupquestionsubmits/{id}")
   public ResponseEntity<GroupQuestionSubmit> updateGroupQuestionSubmit(@PathVariable("id") long id, @RequestBody GroupQuestionSubmit groupquestionsubmit) {
     Optional<GroupQuestionSubmit> groupquestionsubmitData = groupquestionsubmitRepository.findById(id);
 
@@ -138,7 +138,7 @@ public class GroupQuestionSubmitController {
     }
   }
 
-  @DeleteMapping("/groupquestionsubmit/{id}")
+  @DeleteMapping("/groupquestionsubmits/{id}")
   public ResponseEntity<?> deleteGroupQuestionSubmit(@PathVariable("id") long id) {
     try {
       groupquestionsubmitRepository.deleteById(id);

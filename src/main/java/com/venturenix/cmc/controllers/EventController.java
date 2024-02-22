@@ -102,7 +102,7 @@ public class EventController {
     
   }
 
- @GetMapping("/event/{id}")
+ @GetMapping("/events/{id}")
   public ResponseEntity<Event> getEventById(@PathVariable("id") long id) {
     Optional<Event> eventData = eventRepository.findById(id);
     if (eventData.isPresent()) {
@@ -112,7 +112,7 @@ public class EventController {
     }
   }
 
-  @PutMapping("/event/{id}")
+  @PutMapping("/events/{id}")
   public ResponseEntity<Event> updateEvent(@PathVariable("id") long id, @RequestBody Event event) {
     Optional<Event> eventData = eventRepository.findById(id);
 
@@ -128,7 +128,7 @@ public class EventController {
     }
   }
 
-  @DeleteMapping("/event/{id}")
+  @DeleteMapping("/events/{id}")
   public ResponseEntity<?> deleteEvent(@PathVariable("id") long id) {
     try {
       eventRepository.deleteById(id);

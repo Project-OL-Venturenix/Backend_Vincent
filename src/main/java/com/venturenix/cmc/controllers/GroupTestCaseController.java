@@ -72,7 +72,7 @@ public class GroupTestCaseController {
   GroupTestCaseRepository grouptestcaseRepository;
 
 
-@PostMapping("/grouptestcase/add")
+@PostMapping("/grouptestcases/add")
   public ResponseEntity<?> addGroupTestCase(@Valid @RequestBody GroupTestCaseRequest grouptestcaseRequest) {
     GroupTestCase grouptestcase = new GroupTestCase(
                grouptestcaseRequest.getEventid(), 
@@ -115,7 +115,7 @@ public class GroupTestCaseController {
     
   }
 
- @GetMapping("/grouptestcase/{id}")
+ @GetMapping("/grouptestcases/{id}")
   public ResponseEntity<GroupTestCase> getGroupTestCaseById(@PathVariable("id") long id) {
     Optional<GroupTestCase> grouptestcaseData = grouptestcaseRepository.findById(id);
     if (grouptestcaseData.isPresent()) {
@@ -125,7 +125,7 @@ public class GroupTestCaseController {
     }
   }
 
-  @PutMapping("/grouptestcase/{id}")
+  @PutMapping("/grouptestcases/{id}")
   public ResponseEntity<GroupTestCase> updateGroupTestCase(@PathVariable("id") long id, @RequestBody GroupTestCase grouptestcase) {
     Optional<GroupTestCase> grouptestcaseData = grouptestcaseRepository.findById(id);
 
@@ -153,7 +153,7 @@ public class GroupTestCaseController {
     }
   }
 
-  @DeleteMapping("/grouptestcase/{id}")
+  @DeleteMapping("/grouptestcases{id}")
   public ResponseEntity<?> deleteGroupTestCase(@PathVariable("id") long id) {
     try {
       grouptestcaseRepository.deleteById(id);

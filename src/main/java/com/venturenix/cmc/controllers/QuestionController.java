@@ -71,7 +71,7 @@ public class QuestionController {
   QuestionRepository questionRepository;
 
 
-@PostMapping("/question/add")
+@PostMapping("/questions/add")
   public ResponseEntity<?> addQuestion(@Valid @RequestBody QuestionRequest questionRequest) {
     Question question = new Question(
                questionRequest.getQuestiontext(), 
@@ -103,7 +103,7 @@ public class QuestionController {
     
   }
 
- @GetMapping("/question/{id}")
+ @GetMapping("/questions/{id}")
   public ResponseEntity<Question> getQuestionById(@PathVariable("id") long id) {
     Optional<Question> questionData = questionRepository.findById(id);
     if (questionData.isPresent()) {
@@ -113,7 +113,7 @@ public class QuestionController {
     }
   }
 
-  @PutMapping("/question/{id}")
+  @PutMapping("/questions/{id}")
   public ResponseEntity<Question> updateQuestion(@PathVariable("id") long id, @RequestBody Question question) {
     Optional<Question> questionData = questionRepository.findById(id);
 
@@ -130,7 +130,7 @@ public class QuestionController {
     }
   }
 
-  @DeleteMapping("/question/{id}")
+  @DeleteMapping("/questions/{id}")
   public ResponseEntity<?> deleteQuestion(@PathVariable("id") long id) {
     try {
       questionRepository.deleteById(id);

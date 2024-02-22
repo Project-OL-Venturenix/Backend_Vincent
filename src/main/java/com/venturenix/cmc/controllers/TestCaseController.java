@@ -71,7 +71,7 @@ public class TestCaseController {
   TestCaseRepository testcaseRepository;
 
 
-@PostMapping("/testcase/add")
+@PostMapping("/testcases/add")
   public ResponseEntity<?> addTestCase(@Valid @RequestBody TestCaseRequest testcaseRequest) {
     TestCase testcase = new TestCase(
                testcaseRequest.getQuestionid(), 
@@ -105,7 +105,7 @@ public class TestCaseController {
     
   }
 
- @GetMapping("/testcase/{id}")
+ @GetMapping("/testcases/{id}")
   public ResponseEntity<TestCase> getTestCaseById(@PathVariable("id") long id) {
     Optional<TestCase> testcaseData = testcaseRepository.findById(id);
     if (testcaseData.isPresent()) {
@@ -115,7 +115,7 @@ public class TestCaseController {
     }
   }
 
-  @PutMapping("/testcase/{id}")
+  @PutMapping("/testcases/{id}")
   public ResponseEntity<TestCase> updateTestCase(@PathVariable("id") long id, @RequestBody TestCase testcase) {
     Optional<TestCase> testcaseData = testcaseRepository.findById(id);
 
@@ -134,7 +134,7 @@ public class TestCaseController {
     }
   }
 
-  @DeleteMapping("/testcase/{id}")
+  @DeleteMapping("/testcases/{id}")
   public ResponseEntity<?> deleteTestCase(@PathVariable("id") long id) {
     try {
       testcaseRepository.deleteById(id);

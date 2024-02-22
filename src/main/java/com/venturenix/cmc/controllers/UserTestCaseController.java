@@ -72,7 +72,7 @@ public class UserTestCaseController {
   UserTestCaseRepository usertestcaseRepository;
 
 
-@PostMapping("/usertestcase/add")
+@PostMapping("/usertestcases/add")
   public ResponseEntity<?> addUserTestCase(@Valid @RequestBody UserTestCaseRequest usertestcaseRequest) {
 
     System.out.println("getEventid = " +  usertestcaseRequest.getEventid());
@@ -132,7 +132,7 @@ public class UserTestCaseController {
     
   }
 
- @GetMapping("/usertestcase/{id}")
+ @GetMapping("/usertestcases/{id}")
   public ResponseEntity<UserTestCase> getUserTestCaseById(@PathVariable("id") long id) {
     Optional<UserTestCase> usertestcaseData = usertestcaseRepository.findById(id);
     if (usertestcaseData.isPresent()) {
@@ -142,7 +142,7 @@ public class UserTestCaseController {
     }
   }
 
-  @PutMapping("/usertestcase/{id}")
+  @PutMapping("/usertestcases/{id}")
   public ResponseEntity<UserTestCase> updateUserTestCase(@PathVariable("id") long id, @RequestBody UserTestCase usertestcase) {
     Optional<UserTestCase> usertestcaseData = usertestcaseRepository.findById(id);
 
@@ -169,7 +169,7 @@ public class UserTestCaseController {
     }
   }
 
-  @DeleteMapping("/usertestcase/{id}")
+  @DeleteMapping("/usertestcases/{id}")
   public ResponseEntity<?> deleteUserTestCase(@PathVariable("id") long id) {
     try {
       usertestcaseRepository.deleteById(id);

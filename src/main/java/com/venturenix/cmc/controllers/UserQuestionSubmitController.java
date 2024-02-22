@@ -71,7 +71,7 @@ public class UserQuestionSubmitController {
   UserQuestionSubmitRepository userquestionsubmitRepository;
 
 
-@PostMapping("/userquestionsubmit/add")
+@PostMapping("/userquestionsubmits/add")
   public ResponseEntity<?> addUserQuestionSubmit(@Valid @RequestBody UserQuestionSubmitRequest userquestionsubmitRequest) {
     UserQuestionSubmit userquestionsubmit = new UserQuestionSubmit(
                userquestionsubmitRequest.getEventid(), 
@@ -106,7 +106,7 @@ public class UserQuestionSubmitController {
     
   }
 
- @GetMapping("/userquestionsubmit/{id}")
+ @GetMapping("/userquestionsubmits/{id}")
   public ResponseEntity<UserQuestionSubmit> getUserQuestionSubmitById(@PathVariable("id") long id) {
     Optional<UserQuestionSubmit> userquestionsubmitData = userquestionsubmitRepository.findById(id);
     if (userquestionsubmitData.isPresent()) {
@@ -116,7 +116,7 @@ public class UserQuestionSubmitController {
     }
   }
 
-  @PutMapping("/userquestionsubmit/{id}")
+  @PutMapping("/userquestionsubmits/{id}")
   public ResponseEntity<UserQuestionSubmit> updateUserQuestionSubmit(@PathVariable("id") long id, @RequestBody UserQuestionSubmit userquestionsubmit) {
     Optional<UserQuestionSubmit> userquestionsubmitData = userquestionsubmitRepository.findById(id);
 
@@ -136,7 +136,7 @@ public class UserQuestionSubmitController {
     }
   }
 
-  @DeleteMapping("/userquestionsubmit/{id}")
+  @DeleteMapping("/userquestionsubmits/{id}")
   public ResponseEntity<?> deleteUserQuestionSubmit(@PathVariable("id") long id) {
     try {
       userquestionsubmitRepository.deleteById(id);

@@ -71,7 +71,7 @@ public class GroupUserQuestionHandleController {
   GroupUserQuestionHandleRepository groupuserquestionhandleRepository;
 
 
-@PostMapping("/groupuserquestionhandle/add")
+@PostMapping("/groupuserquestionhandles/add")
   public ResponseEntity<?> addGroupUserQuestionHandle(@Valid @RequestBody GroupUserQuestionHandleRequest groupuserquestionhandleRequest) {
     GroupUserQuestionHandle groupuserquestionhandle = new GroupUserQuestionHandle(
                groupuserquestionhandleRequest.getEventid(), 
@@ -105,7 +105,7 @@ public class GroupUserQuestionHandleController {
     
   }
 
- @GetMapping("/groupuserquestionhandle/{id}")
+ @GetMapping("/groupuserquestionhandles/{id}")
   public ResponseEntity<GroupUserQuestionHandle> getGroupUserQuestionHandleById(@PathVariable("id") long id) {
     Optional<GroupUserQuestionHandle> groupuserquestionhandleData = groupuserquestionhandleRepository.findById(id);
     if (groupuserquestionhandleData.isPresent()) {
@@ -115,7 +115,7 @@ public class GroupUserQuestionHandleController {
     }
   }
 
-  @PutMapping("/groupuserquestionhandle/{id}")
+  @PutMapping("/groupuserquestionhandles/{id}")
   public ResponseEntity<GroupUserQuestionHandle> updateGroupUserQuestionHandle(@PathVariable("id") long id, @RequestBody GroupUserQuestionHandle groupuserquestionhandle) {
     Optional<GroupUserQuestionHandle> groupuserquestionhandleData = groupuserquestionhandleRepository.findById(id);
 
@@ -133,7 +133,7 @@ public class GroupUserQuestionHandleController {
     }
   }
 
-  @DeleteMapping("/groupuserquestionhandle/{id}")
+  @DeleteMapping("/groupuserquestionhandles/{id}")
   public ResponseEntity<?> deleteGroupUserQuestionHandle(@PathVariable("id") long id) {
     try {
       groupuserquestionhandleRepository.deleteById(id);

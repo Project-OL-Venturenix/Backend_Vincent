@@ -71,7 +71,7 @@ public class EventUserController {
   EventUserRepository eventUserRepository;
 
 
-@PostMapping("/eventuser/add")
+@PostMapping("/eventusers/add")
   public ResponseEntity<?> addEventUser(@Valid @RequestBody EventUserRequest eventUserRequest) {
     EventUser eventUser = new EventUser(
                eventUserRequest.getUserid(),
@@ -103,7 +103,7 @@ public class EventUserController {
     
   }
 
- @GetMapping("/eventuser/{id}")
+ @GetMapping("/eventusers/{id}")
   public ResponseEntity<EventUser> getEventUserById(@PathVariable("id") long id) {
     Optional<EventUser> eventUserData = eventUserRepository.findById(id);
     if (eventUserData.isPresent()) {
@@ -113,7 +113,7 @@ public class EventUserController {
     }
   }
 
-  @PutMapping("/eventuser/{id}")
+  @PutMapping("/eventusers/{id}")
   public ResponseEntity<EventUser> updateEventUser(@PathVariable("id") long id, @RequestBody EventUser eventUser) {
     Optional<EventUser> eventUserData = eventUserRepository.findById(id);
 
@@ -130,7 +130,7 @@ public class EventUserController {
     }
   }
 
-  @DeleteMapping("/eventuser/{id}")
+  @DeleteMapping("/eventusers/{id}")
   public ResponseEntity<?> deleteEventUser(@PathVariable("id") long id) {
     try {
       eventUserRepository.deleteById(id);

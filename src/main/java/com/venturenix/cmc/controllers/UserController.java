@@ -69,7 +69,7 @@ public class UserController {
   
 
 
-@PostMapping("/user/add")
+@PostMapping("/users/add")
   public ResponseEntity<?> addUser(@Valid @RequestBody UserRequest userRequest) {
     User user = new User(
                userRequest.getFirstname(), 
@@ -112,7 +112,7 @@ public class UserController {
     
   }
 
- @GetMapping("/user/{id}")
+ @GetMapping("/users/{id}")
   public ResponseEntity<User> getUserById(@PathVariable("id") long id) {
     Optional<User> userData = userRepository.findById(id);
     if (userData.isPresent()) {
@@ -122,7 +122,7 @@ public class UserController {
     }
   }
 
-  @PutMapping("/user/{id}")
+  @PutMapping("/users/{id}")
   public ResponseEntity<User> updateUser(@PathVariable("id") long id, @RequestBody User user) {
     Optional<User> userData = userRepository.findById(id);
 
@@ -150,7 +150,7 @@ public class UserController {
     }
   }
 
-  @DeleteMapping("/user/{id}")
+  @DeleteMapping("/users/{id}")
   public ResponseEntity<?> deleteUser(@PathVariable("id") long id) {
     try {
       userRepository.deleteById(id);

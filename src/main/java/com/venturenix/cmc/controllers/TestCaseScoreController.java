@@ -71,7 +71,7 @@ public class TestCaseScoreController {
   TestCaseScoreRepository testcasescoreRepository;
 
 
-@PostMapping("/testcasescore/add")
+@PostMapping("/testcasescores/add")
   public ResponseEntity<?> addTestCaseScore(@Valid @RequestBody TestCaseScoreRequest testcasescoreRequest) {
     TestCaseScore testcasescore = new TestCaseScore(
                testcasescoreRequest.getTestcasescoredesc(), 
@@ -103,7 +103,7 @@ public class TestCaseScoreController {
     
   }
 
- @GetMapping("/testcasescore/{id}")
+ @GetMapping("/testcasescores/{id}")
   public ResponseEntity<TestCaseScore> getTestCaseScoreById(@PathVariable("id") long id) {
     Optional<TestCaseScore> testcasescoreData = testcasescoreRepository.findById(id);
     if (testcasescoreData.isPresent()) {
@@ -113,7 +113,7 @@ public class TestCaseScoreController {
     }
   }
 
-  @PutMapping("/testcasescore/{id}")
+  @PutMapping("/testcasescores/{id}")
   public ResponseEntity<TestCaseScore> updateTestCaseScore(@PathVariable("id") long id, @RequestBody TestCaseScore testcasescore) {
     Optional<TestCaseScore> testcasescoreData = testcasescoreRepository.findById(id);
 
@@ -130,7 +130,7 @@ public class TestCaseScoreController {
     }
   }
 
-  @DeleteMapping("/testcasescore/{id}")
+  @DeleteMapping("/testcasescores/{id}")
   public ResponseEntity<?> deleteTestCaseScore(@PathVariable("id") long id) {
     try {
       testcasescoreRepository.deleteById(id);

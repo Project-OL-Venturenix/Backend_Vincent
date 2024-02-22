@@ -101,7 +101,7 @@ public class GroupController {
     
   }
 
- @GetMapping("/group/{id}")
+ @GetMapping("/groups/{id}")
   public ResponseEntity<Group> getGroupById(@PathVariable("id") long id) {
     Optional<Group> groupData = groupRepository.findById(id);
     if (groupData.isPresent()) {
@@ -111,7 +111,7 @@ public class GroupController {
     }
   }
 
-  @PutMapping("/group/{id}")
+  @PutMapping("/groups/{id}")
   public ResponseEntity<Group> updateGroup(@PathVariable("id") long id, @RequestBody Group group) {
     Optional<Group> groupData = groupRepository.findById(id);
 
@@ -127,7 +127,7 @@ public class GroupController {
     }
   }
 
-  @DeleteMapping("/group/{id}")
+  @DeleteMapping("/groups/{id}")
   public ResponseEntity<?> deleteGroup(@PathVariable("id") long id) {
     try {
       groupRepository.deleteById(id);

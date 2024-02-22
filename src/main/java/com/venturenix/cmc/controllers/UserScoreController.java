@@ -71,7 +71,7 @@ public class UserScoreController {
   UserScoreRepository userscoreRepository;
 
 
-@PostMapping("/userscore/add")
+@PostMapping("/userscores/add")
   public ResponseEntity<?> addUserScore(@Valid @RequestBody UserScoreRequest userscoreRequest) {
     UserScore userscore = new UserScore(
                userscoreRequest.getEventid(), 
@@ -107,7 +107,7 @@ public class UserScoreController {
     
   }
 
- @GetMapping("/userscore/{id}")
+ @GetMapping("/userscores/{id}")
   public ResponseEntity<UserScore> getUserScoreById(@PathVariable("id") long id) {
     Optional<UserScore> userscoreData = userscoreRepository.findById(id);
     if (userscoreData.isPresent()) {
@@ -117,7 +117,7 @@ public class UserScoreController {
     }
   }
 
-  @PutMapping("/userscore/{id}")
+  @PutMapping("/userscores/{id}")
   public ResponseEntity<UserScore> updateUserScore(@PathVariable("id") long id, @RequestBody UserScore userscore) {
     Optional<UserScore> userscoreData = userscoreRepository.findById(id);
 
@@ -138,7 +138,7 @@ public class UserScoreController {
     }
   }
 
-  @DeleteMapping("/userscore/{id}")
+  @DeleteMapping("/userscores/{id}")
   public ResponseEntity<?> deleteUserScore(@PathVariable("id") long id) {
     try {
       userscoreRepository.deleteById(id);

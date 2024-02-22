@@ -71,7 +71,7 @@ public class EventQuestionController {
   EventQuestionRepository eventQuestionRepository;
 
 
-@PostMapping("/eventquestion/add")
+@PostMapping("/eventquestions/add")
   public ResponseEntity<?> addEventQuestion(@Valid @RequestBody EventQuestionRequest eventQuestionRequest) {
     EventQuestion eventQuestion = new EventQuestion(
                eventQuestionRequest.getQuestionid(),
@@ -103,7 +103,7 @@ public class EventQuestionController {
     
   }
 
- @GetMapping("/eventquestion/{id}")
+ @GetMapping("/eventquestions/{id}")
   public ResponseEntity<EventQuestion> getEventQuestionById(@PathVariable("id") long id) {
     Optional<EventQuestion> eventQuestionData = eventQuestionRepository.findById(id);
     if (eventQuestionData.isPresent()) {
@@ -113,7 +113,7 @@ public class EventQuestionController {
     }
   }
 
-  @PutMapping("/eventquestion/{id}")
+  @PutMapping("/eventquestions/{id}")
   public ResponseEntity<EventQuestion> updateEventQuestion(@PathVariable("id") long id, @RequestBody EventQuestion eventQuestion) {
     Optional<EventQuestion> eventQuestionData = eventQuestionRepository.findById(id);
 
@@ -130,7 +130,7 @@ public class EventQuestionController {
     }
   }
 
-  @DeleteMapping("/eventquestion/{id}")
+  @DeleteMapping("/eventquestions/{id}")
   public ResponseEntity<?> deleteEventQuestion(@PathVariable("id") long id) {
     try {
       eventQuestionRepository.deleteById(id);

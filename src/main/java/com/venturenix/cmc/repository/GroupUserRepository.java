@@ -1,22 +1,17 @@
 package com.venturenix.cmc.repository;
 
-import java.util.Optional;
-
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-
-
-import com.venturenix.cmc.models.GroupUser;
+import com.venturenix.cmc.entity.GroupUser;
 import java.util.List;
 
 @Repository
 public interface GroupUserRepository extends JpaRepository<GroupUser, Long> {
 
-    Optional<GroupUser> findById(Long id);
+    @Query("SELECT gu.userId FROM GroupUser gu WHERE gu.groupId = ?1")
+    List<Long> findUserIdsByGroupId(Long groupId);
 
-    List<GroupUser> findAll();
-    
-    
-
-  
+    @Query("SELECT DISTINCT gu.groupId FROM GroupUser gu")
+    List<Long> findDistinctGroupIds();
 }

@@ -96,7 +96,7 @@ public class TestCaseController implements TestCaseOperation {
     if (testcaseData.isPresent()) {
       TestCaseResponse result = TestCaseResponse.builder()//
           .id(testcaseData.get().getTestcaseId())//
-          .questionid(testcaseData.get().getQuestionBank().getQuestionId())//
+          .questionId(testcaseData.get().getQuestionBank().getQuestionId())//
           .createdDate(testcaseData.get().getCreatedDate())//
           .createdBy(testcaseData.get().getCreatedBy())//
           .updatedDate(testcaseData.get().getUpdatedDate())//

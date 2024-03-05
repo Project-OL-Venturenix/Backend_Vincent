@@ -13,7 +13,7 @@ import com.venturenix.cmc.payload.request.EventQuestionRequest;
 import jakarta.validation.Valid;
 
 public interface EventQuestionOperation {
-  @PostMapping("/eventquestions/add")
+  @PostMapping("/eventquestions")
   public ResponseEntity<?> addEventQuestion(
       @Valid @RequestBody EventQuestionRequest eventQuestionRequest);
 

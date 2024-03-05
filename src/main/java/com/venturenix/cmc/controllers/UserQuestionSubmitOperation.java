@@ -15,7 +15,7 @@ import com.venturenix.cmc.entity.UserQuestionSubmit;
 
 public interface UserQuestionSubmitOperation {
 
-  @PostMapping("/userquestionsubmits/add")
+  @PostMapping("/userquestionsubmits")
   ResponseEntity<?> addUserQuestionSubmit(
     @Valid @RequestBody  UserQuestionSubmitRequest userquestionsubmitRequest);
 

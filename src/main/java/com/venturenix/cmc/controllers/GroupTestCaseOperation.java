@@ -19,7 +19,7 @@ import jakarta.validation.Valid;
 
 public interface GroupTestCaseOperation {
   
-  @PostMapping("/grouptestcases/add")
+  @PostMapping("/grouptestcases")
   public ResponseEntity<?> addGroupTestCase(@Valid @RequestBody GroupTestCaseRequest grouptestcaseRequest);
 
   @GetMapping("/grouptestcases")

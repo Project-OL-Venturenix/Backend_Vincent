@@ -13,7 +13,7 @@ import com.venturenix.cmc.payload.request.GroupRequest;
 import jakarta.validation.Valid;
 
 public interface GroupOperation {
-  @PostMapping("/groups/add")
+  @PostMapping("/groups")
   ResponseEntity<?> addGroup(@Valid @RequestBody GroupRequest groupRequest);
 
   @GetMapping("/groups")

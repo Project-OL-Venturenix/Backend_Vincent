@@ -13,7 +13,7 @@ import com.venturenix.cmc.payload.request.EventRequest;
 import jakarta.validation.Valid;
 
 public interface EventOperation {
-  @PostMapping("/events/add")
+  @PostMapping("/events")
    ResponseEntity<?> addEvent(
       @Valid @RequestBody EventRequest eventRequest);
 

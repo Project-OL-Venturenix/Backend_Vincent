@@ -17,7 +17,7 @@ import jakarta.validation.Valid;
 public interface GroupUserQuestionHandleOperation {
 
 
-        @PostMapping("/groupuserquestionhandles/add")
+        @PostMapping("/groupuserquestionhandles")
         ResponseEntity<?> addGroupUserQuestionHandle(
                         @Valid @RequestBody GroupUserQuestionHandleRequest groupuserquestionhandleRequest);
 

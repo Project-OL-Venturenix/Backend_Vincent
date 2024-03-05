@@ -13,7 +13,7 @@ import com.venturenix.cmc.payload.request.GroupQuestionSubmitRequest;
 import jakarta.validation.Valid;
 
 public interface GroupQuestionSubmitOperation {
-  @PostMapping("/groupquestionsubmits/add")
+  @PostMapping("/groupquestionsubmits")
   public ResponseEntity<?> addGroupQuestionSubmit(
       @Valid @RequestBody GroupQuestionSubmitRequest groupquestionsubmitRequest);
 

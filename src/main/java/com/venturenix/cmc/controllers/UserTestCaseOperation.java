@@ -18,7 +18,7 @@ import com.venturenix.cmc.entity.UserTestCase;
 
 public interface UserTestCaseOperation {
   
-  @PostMapping("/usertestcases/add")
+  @PostMapping("/usertestcases")
   public ResponseEntity<?> addUserTestCase(@Valid @RequestBody UserTestCaseRequest usertestcaseRequest);
 
   @GetMapping("/usertestcases")

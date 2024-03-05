@@ -14,7 +14,7 @@ import com.venturenix.cmc.payload.response.MessageResponse;
 import jakarta.validation.Valid;
 
 public interface UserOperation {
-  @PostMapping("/users/add")
+  @PostMapping("/users")
   ResponseEntity<?> addUser(@Valid @RequestBody UserRequest userRequest);
 
   @GetMapping("/users")

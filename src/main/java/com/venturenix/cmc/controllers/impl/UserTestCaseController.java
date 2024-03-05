@@ -104,6 +104,7 @@ public class UserTestCaseController implements UserTestCaseOperation {
     UserTestCase usertestcase = new UserTestCase(
         usertestcaseRequest.getEventid(), usertestcaseRequest.getQuestionid(),
         usertestcaseRequest.getTestcaseid(), usertestcaseRequest.getUserid(),
+        usertestcaseRequest.getTestcasepassstatus(),
         usertestcaseRequest.getRunstarttimeutc(),
         usertestcaseRequest.getRunendtimeutc(),
         usertestcaseRequest.getRuntimeutc(),
@@ -111,7 +112,6 @@ public class UserTestCaseController implements UserTestCaseOperation {
         usertestcaseRequest.getRunendtime(),
         usertestcaseRequest.getTestcasefilepath(),
         usertestcaseRequest.getFilename(),
-        usertestcaseRequest.getTestcasepassstatus(),
         usertestcaseRequest.getStatus(), java.time.LocalDateTime.now(),
         usertestcaseRequest.getCreatedby(), java.time.LocalDateTime.now(),
         usertestcaseRequest.getUpdatedby());

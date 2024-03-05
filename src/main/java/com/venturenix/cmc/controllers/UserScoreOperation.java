@@ -21,7 +21,7 @@ public interface UserScoreOperation {
       @RequestParam String questionid, //
       @RequestParam String testcasePassTotal);
 
-  @PostMapping("/userscores/add")
+  @PostMapping("/userscores")
   ResponseEntity<?> addUserScore(
       @Valid @RequestBody UserScoreRequest userscoreRequest);
 

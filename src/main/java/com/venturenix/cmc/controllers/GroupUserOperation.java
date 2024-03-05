@@ -15,7 +15,7 @@ import com.venturenix.cmc.payload.response.GroupUserDTO;
 import jakarta.validation.Valid;
 
 public interface GroupUserOperation {
-  @PostMapping("/groupusers/add")
+  @PostMapping("/groupusers")
   ResponseEntity<?> addGroupUser(
       @Valid @RequestBody GroupUserRequest groupuserRequest);
 

@@ -22,9 +22,9 @@ import java.util.List; // Add missing import statement for List
 public class QuestionBank implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @JsonProperty("questionId")
-  @Column(name = "questionId")
-  private Long questionId;
+  @JsonProperty("id")
+  @Column(name = "id")
+  private Long id;
 
   @OneToMany(cascade = CascadeType.ALL)
   private List<TestCase> testCase; // Change field type to List<TestCase>

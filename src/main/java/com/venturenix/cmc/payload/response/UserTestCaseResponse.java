@@ -47,20 +47,20 @@ public class UserTestCaseResponse {
   private Integer updatedby;
   
   
-  public UserTestCaseResponse(String accessToken, Long id, Long eventid, Long questionid, Long testcaseid, Long userid, OffsetDateTime runstarttimeutc, OffsetDateTime runendtimeutc, LocalDateTime runstarttime, LocalDateTime runendtime, String testcasefilepath, String filename, String testcasepassstatus, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
+  public UserTestCaseResponse(String accessToken, Long id, Long eventid, Long questionid, Long testcaseid, Long userid, String testcasepassstatus, OffsetDateTime runstarttimeutc, OffsetDateTime runendtimeutc, LocalDateTime runstarttime, LocalDateTime runendtime, String testcasefilepath, String filename, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
     this.token = accessToken;
     this.id = id;
     this.eventid = eventid;
     this.questionid = questionid;
     this.testcaseid = testcaseid;
     this.userid = userid;
+    this.testcasepassstatus = testcasepassstatus;
     this.runstarttimeutc = runstarttimeutc;
     this.runendtimeutc = runendtimeutc;
     this.runstarttime = runstarttime;
     this.runendtime = runendtime;
     this.testcasefilepath = testcasefilepath;    
     this.filename = filename;
-    this.testcasepassstatus = testcasepassstatus;  
     this.status = status;
     this.createddate = createddate;
     this.createdby = createdby;

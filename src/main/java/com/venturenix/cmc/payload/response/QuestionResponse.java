@@ -21,7 +21,7 @@ public class QuestionResponse {
   private String token;
 
   @JsonProperty("id")
-  private Long questionId;
+  private Long id;
   private String classDeclaration;
   private String code;
   private String mainMethod;

@@ -31,11 +31,11 @@ import lombok.Setter;
 public class TestCase implements Serializable {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @JsonProperty("testcaseId")
+        @JsonProperty("id")
         private Long testcaseId;
 
         @ManyToOne
-        @JoinColumn(name = "questionId", referencedColumnName = "questionId")
+        @JoinColumn(name = "questionId", referencedColumnName = "id")
         private QuestionBank questionBank;
 
         @Nonnull

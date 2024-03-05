@@ -15,7 +15,7 @@ import jakarta.validation.Valid;
 
 public interface QuestionOperation {
 
-  @PostMapping("/questions/add")
+  @PostMapping("/questions")
   public ResponseEntity<?> addQuestion(
       @Valid @RequestBody QuestionRequest questionRequest);
 

@@ -14,7 +14,7 @@ import com.venturenix.cmc.payload.response.TestCaseResponse;
 import jakarta.validation.Valid;
 
 public interface TestCaseOperation {
-  @PostMapping("/testcases/add")
+  @PostMapping("/testcases")
   ResponseEntity<?> addTestCase(
       @Valid @RequestBody TestCaseRequest testcaseRequest);
 

@@ -15,7 +15,7 @@ import com.venturenix.cmc.payload.request.TestCaseScoreRequest;
 import jakarta.validation.Valid;
 
 public interface GroupScoreOperation {
-  @PostMapping("/groupscores/add")
+  @PostMapping("/groupscores")
   ResponseEntity<?> addGroupScore(
       @Valid @RequestBody GroupScoreRequest groupscoreRequest);
 

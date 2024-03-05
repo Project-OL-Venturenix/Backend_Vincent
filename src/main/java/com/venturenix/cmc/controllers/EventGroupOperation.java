@@ -13,7 +13,7 @@ import com.venturenix.cmc.payload.request.EventGroupRequest;
 import jakarta.validation.Valid;
 
 public interface EventGroupOperation {
-  @PostMapping("/eventgroups/add")
+  @PostMapping("/eventgroups")
   ResponseEntity<?> addEventGroup(
       @Valid @RequestBody EventGroupRequest eventGroupRequest);
 

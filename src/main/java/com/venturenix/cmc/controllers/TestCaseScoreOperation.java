@@ -17,7 +17,7 @@ import com.venturenix.cmc.payload.request.TestCaseScoreRequest;
 
 public interface TestCaseScoreOperation {
   
-  @PostMapping("/testcasescores/add")
+  @PostMapping("/testcasescores")
   public ResponseEntity<?> addTestCaseScore(@Valid @RequestBody TestCaseScoreRequest testcasescoreRequest);
   
   @GetMapping("/testcasescores")

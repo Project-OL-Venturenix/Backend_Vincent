@@ -33,11 +33,12 @@ public class UserTestCase {
     
   }
 
-  public UserTestCase(Long eventid, Long userid, Long questionid, Long testcaseid, OffsetDateTime runstarttimeutc, OffsetDateTime runtimeutc, OffsetDateTime runendtimeutc, LocalDateTime runstarttime, LocalDateTime runendtime, String testcasefilepath, String filename, String testcasepassstatus, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
+  public UserTestCase(Long eventid, Long questionid, Long testcaseid, Long userid, String testcasepassstatus, OffsetDateTime runstarttimeutc, OffsetDateTime runtimeutc, OffsetDateTime runendtimeutc, LocalDateTime runstarttime, LocalDateTime runendtime, String testcasefilepath, String filename,  String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
     this.eventid = eventid;
-    this.userid = userid;
     this.questionid = questionid;
     this.testcaseid = testcaseid;
+    this.userid = userid;
+    this.testcasepassstatus = testcasepassstatus;
     this.runstarttimeutc = runstarttimeutc;
     this.runendtimeutc = runendtimeutc;
     this.runtimeutc = runtimeutc;

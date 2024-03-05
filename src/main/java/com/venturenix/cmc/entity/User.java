@@ -83,6 +83,7 @@ public class User {
       // joinColumns = @JoinColumn(name = "user_id"),
       // inverseJoinColumns = @JoinColumn(name = "role_id"))
       joinColumns = @JoinColumn(name = "role_id"))
+      //joinColumns = @JoinColumn(name = "userid"))
   private Set<Role> roles = new HashSet<>();
 
   public User() {}

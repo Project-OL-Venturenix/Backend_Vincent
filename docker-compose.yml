@@ -15,7 +15,7 @@ services:
   app:
     depends_on:
       - mysqldb
-    build: ./bezkoder-app
+    build: ./venturenix_ol_api
     restart: on-failure
     env_file: ./.env
     ports:
@@ -34,4 +34,4 @@ services:
     tty: true
 
 volumes:
-  db:
+  mysql-data:

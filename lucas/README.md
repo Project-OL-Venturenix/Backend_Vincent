@@ -1,114 +1,206 @@
-# Online Code Editor
-A full stack web application for online programming, built with React(Frontend) and Express(Backend).
-<kbd>![image](/public/codeeditor.png)</kbd>
+# Spring Boot JWT Authentication example with Spring Security & Spring Data JPA
 
-# Function
-This application is used for online coding. After selecting the programming language, you can start to write code. Below are the highlighted features.
-* Five programming languages are supported, including c, c++, java, javascript and python.
-* Syntax highlighting for different languages.
-* Compilation and execution are supported. The proper result or error message will be displayed.
+## User Registration, User Login and Authorization process.
+The diagram shows flow of how we implement User Registration, User Login and Authorization process.
 
-# Technology
-The Server is built with Express. The used libraries for server are listed as follows.
-* RESTful API: express, express router, cors
-* Compilation & Execution: spawn in node.js
+![spring-boot-jwt-authentication-spring-security-flow](spring-boot-jwt-authentication-spring-security-flow.png)
 
-The Client is built with React and 3rd-party libraries, see below.
-* Styling: bootstrap
-* Rich Text Editor: react-ace
+## Spring Boot Server Architecture with Spring Security
+You can have an overview of our Spring Boot Server with the diagram below:
 
-# Demo
-Two available demos:
-* `Live Demo on Heroku:` <a href="https://code-editor-react.herokuapp.com/" target="\_blank">https://code-editor-react.herokuapp.com/</a>
-* `Live Demo on Netlify:` <a href="https://code-editor-react.netlify.com/" target="\_blank">https://code-editor-react.netlify.com/</a>
-* `Live Demo on Azure:` <a href="https://code-editor.azurewebsites.net/" target="\_blank">https://code-editor.azurewebsites.net/</a>
+![spring-boot-jwt-authentication-spring-security-architecture](spring-boot-jwt-authentication-spring-security-architecture.png)
 
-*Note: The demo websites may be slow when you access them for the first time. Be patient!*
-
-# Setup Locally
-```bash
-git clone https://github.com/jojozhuang/code-editor-react.git
-cd code-editor-react
-npm install
-npm run dev
+## Dependency
+– If you want to use PostgreSQL:
+```xml
+<dependency>
+  <groupId>org.postgresql</groupId>
+  <artifactId>postgresql</artifactId>
+  <scope>runtime</scope>
+</dependency>
 ```
-Access http://localhost:3000/ in web browser and click 'Code Editor' button, enjoy!
-
-# Deployment
-Follow tutorial [Deploying Full Stack React App to Heroku](https://jojozhuang.github.io/tutorial/deploying-full-stack-react-app-to-heroku) to deploy the React app to Heroku(RESTful API + Frontend React).
-
-Follow tutorial [Continuously Deploy Full Stack React App to Heroku and Netlify with Travis-CI](https://jojozhuang.github.io/tutorial/continuously-deploy-full-stack-react-app-to-heroku-and-netlify-with-travis-ci) to continuously deploy this Full Stack app to Heroku(RESTful API) and Netlify(Frontend React).
-
-## Steps(Updated on July 18, 2021)
-Manually deploy the same git repo to two apps in heroku. Use `Multi Procfile buildpack` to deploy multiple apps in a monorepo.
-
-### Server
-Create app `code-editor-api` for backend api.
-```sh
-cd code-editor-react
-heroku login
-heroku create -a code-editor-api
-heroku buildpacks:add -a code-editor-api heroku-community/multi-procfile
-heroku buildpacks:add -a code-editor-api heroku/nodejs
-heroku config:set -a code-editor-api PROCFILE=src/server/Procfile
-git push https://git.heroku.com/code-editor-api.git HEAD:master
+– or MySQL:
+```xml
+<dependency>
+  <groupId>com.mysql</groupId>
+  <artifactId>mysql-connector-j</artifactId>
+  <scope>runtime</scope>
+</dependency>
 ```
+## Configure Spring Datasource, JPA, App properties
+Open `src/main/resources/application.properties`
+- For PostgreSQL:
+```
+spring.datasource.url= jdbc:postgresql://localhost:5432/testdb
+spring.datasource.username= postgres
+spring.datasource.password= 123
 
-### Client
-Create app `code-editor-react` for client website.
-```sh
-cd code-editor-react
-heroku login
-heroku create -a code-editor-react
-heroku buildpacks:add -a code-editor-react heroku-community/multi-procfile
-heroku buildpacks:add -a code-editor-react heroku/nodejs
-heroku config:set -a code-editor-react PROCFILE=Procfile
-git push https://git.heroku.com/code-editor-react.git HEAD:master
+spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation= true
+spring.jpa.properties.hibernate.dialect= org.hibernate.dialect.PostgreSQLDialect
+
+# Hibernate ddl auto (create, create-drop, validate, update)
+spring.jpa.hibernate.ddl-auto= update
+
+# App Properties
+bezkoder.app.jwtSecret= bezKoderSecretKey
+bezkoder.app.jwtExpirationMs= 86400000
+```
+- For MySQL
+```
+spring.datasource.url=jdbc:mysql://localhost:3306/testdb_spring?useSSL=false
+spring.datasource.username=root
+spring.datasource.password=123456
+
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+spring.jpa.hibernate.ddl-auto=update
+
+# App Properties
+bezkoder.app.jwtSecret= ======================BezKoder=Spring===========================
+bezkoder.app.jwtExpirationMs=86400000
+```
+## Run Spring Boot application
+```
+mvn spring-boot:run
 ```
 
-## Update
-Server.
-```sh
-cd code-editor-react
-heroku login
-heroku git:remote -a code-editor-api
-git commit --allow-empty -m "Upgrading to heroku-20"
-git push heroku master
+## Run following SQL insert statements
+```
+INSERT INTO roles(name) VALUES('ROLE_USER');
+INSERT INTO roles(name) VALUES('ROLE_MODERATOR');
+INSERT INTO roles(name) VALUES('ROLE_ADMIN');
 ```
 
-Client.
-```sh
-cd code-editor-react
-heroku login
-heroku git:remote -a code-editor-react
-git commit --allow-empty -m "Upgrading to heroku-20"
-git push heroku master
-```
-* [Upgrading to the Latest Stack](https://devcenter.heroku.com/articles/upgrading-to-the-latest-stack)
+For more detail, please visit:
+> [Secure Spring Boot with Spring Security & JWT Authentication](https://bezkoder.com/spring-boot-jwt-authentication/)
 
-# Portfolio
-Read portfolio [Code Editor(React)](https://jojozhuang.github.io/project/code-editor-react/) to learn the main functions of this code editor.
+> [For MongoDB](https://bezkoder.com/spring-boot-jwt-auth-mongodb/)
 
-# Tutorial
-Read tutorial [Building Online Code Editor with React and Express](https://jojozhuang.github.io/tutorial/building-online-code-editor-with-react-and-express) to learn how this online code editor is built.
+## Refresh Token
 
+![spring-boot-refresh-token-jwt-example-flow](spring-boot-refresh-token-jwt-example-flow.png)
 
-# Docker
-Build for production. All the compiled html files and js files will be generated in `dist`.
-```sh
-npm run build
-```
-Create image with nginx for frontend.
-```sh
-docker build -t jojozhuang/code-editor-web .
-```
-Create image with node for backend.
-```sh
-docker build -t jojozhuang/code-editor-server . -f Dockerfile-server
-```
-Create container.
-```sh
-docker run --name code-editor-web -p 9010:80 -d jojozhuang/code-editor-web
-docker run --name code-editor-server -p 9011:80 -d jojozhuang/code-editor-server
-```
-Access http://192.168.0.2:9010/ in browser.
+For instruction: [Spring Boot Refresh Token with JWT example](https://bezkoder.com/spring-boot-refresh-token-jwt/)
+
+## More Practice:
+> [Spring Boot JWT Authentication example using HttpOnly Cookie](https://www.bezkoder.com/spring-boot-login-example-mysql/)
+
+> [Spring Boot File upload example with Multipart File](https://bezkoder.com/spring-boot-file-upload/)
+
+> [Exception handling: @RestControllerAdvice example in Spring Boot](https://bezkoder.com/spring-boot-restcontrolleradvice/)
+
+> [Spring Boot Repository Unit Test with @DataJpaTest](https://bezkoder.com/spring-boot-unit-test-jpa-repo-datajpatest/)
+
+> [Spring Boot Pagination & Sorting example](https://www.bezkoder.com/spring-boot-pagination-sorting-example/)
+
+> Validation: [Spring Boot Validate Request Body](https://www.bezkoder.com/spring-boot-validate-request-body/)
+
+> Documentation: [Spring Boot and Swagger 3 example](https://www.bezkoder.com/spring-boot-swagger-3/)
+
+> Caching: [Spring Boot Redis Cache example](https://www.bezkoder.com/spring-boot-redis-cache-example/)
+
+Associations:
+> [Spring Boot One To Many example with Spring JPA, Hibernate](https://www.bezkoder.com/jpa-one-to-many/)
+
+> [Spring Boot Many To Many example with Spring JPA, Hibernate](https://www.bezkoder.com/jpa-many-to-many/)
+
+> [JPA One To One example with Spring Boot](https://www.bezkoder.com/jpa-one-to-one/)
+
+Deployment:
+> [Deploy Spring Boot App on AWS – Elastic Beanstalk](https://www.bezkoder.com/deploy-spring-boot-aws-eb/)
+
+> [Docker Compose Spring Boot and MySQL example](https://www.bezkoder.com/docker-compose-spring-boot-mysql/)
+
+## Fullstack Authentication
+
+> [Spring Boot + Vue.js JWT Authentication](https://bezkoder.com/spring-boot-vue-js-authentication-jwt-spring-security/)
+
+> [Spring Boot + Angular 8 JWT Authentication](https://bezkoder.com/angular-spring-boot-jwt-auth/)
+
+> [Spring Boot + Angular 10 JWT Authentication](https://bezkoder.com/angular-10-spring-boot-jwt-auth/)
+
+> [Spring Boot + Angular 11 JWT Authentication](https://bezkoder.com/angular-11-spring-boot-jwt-auth/)
+
+> [Spring Boot + Angular 12 JWT Authentication](https://www.bezkoder.com/angular-12-spring-boot-jwt-auth/)
+
+> [Spring Boot + Angular 13 JWT Authentication](https://www.bezkoder.com/angular-13-spring-boot-jwt-auth/)
+
+> [Spring Boot + Angular 14 JWT Authentication](https://www.bezkoder.com/angular-14-spring-boot-jwt-auth/)
+
+> [Spring Boot + Angular 15 JWT Authentication](https://www.bezkoder.com/angular-15-spring-boot-jwt-auth/)
+
+> [Spring Boot + Angular 16 JWT Authentication](https://www.bezkoder.com/angular-16-spring-boot-jwt-auth/)
+
+> [Spring Boot + Angular 17 JWT Authentication](https://www.bezkoder.com/angular-17-spring-boot-jwt-auth/)
+
+> [Spring Boot + React JWT Authentication](https://bezkoder.com/spring-boot-react-jwt-auth/)
+
+## Fullstack CRUD App
+
+> [Vue.js + Spring Boot + H2 Embedded database example](https://www.bezkoder.com/spring-boot-vue-js-crud-example/)
+
+> [Vue.js + Spring Boot + MySQL example](https://www.bezkoder.com/spring-boot-vue-js-mysql/)
+
+> [Vue.js + Spring Boot + PostgreSQL example](https://www.bezkoder.com/spring-boot-vue-js-postgresql/)
+
+> [Angular 8 + Spring Boot + Embedded database example](https://www.bezkoder.com/angular-spring-boot-crud/)
+
+> [Angular 8 + Spring Boot + MySQL example](https://bezkoder.com/angular-spring-boot-crud/)
+
+> [Angular 8 + Spring Boot + PostgreSQL example](https://bezkoder.com/angular-spring-boot-postgresql/)
+
+> [Angular 10 + Spring Boot + MySQL example](https://bezkoder.com/angular-10-spring-boot-crud/)
+
+> [Angular 10 + Spring Boot + PostgreSQL example](https://bezkoder.com/angular-10-spring-boot-postgresql/)
+
+> [Angular 11 + Spring Boot + MySQL example](https://bezkoder.com/angular-11-spring-boot-crud/)
+
+> [Angular 11 + Spring Boot + PostgreSQL example](https://bezkoder.com/angular-11-spring-boot-postgresql/)
+
+> [Angular 12 + Spring Boot + Embedded database example](https://www.bezkoder.com/angular-12-spring-boot-crud/)
+
+> [Angular 12 + Spring Boot + MySQL example](https://www.bezkoder.com/angular-12-spring-boot-mysql/)
+
+> [Angular 12 + Spring Boot + PostgreSQL example](https://www.bezkoder.com/angular-12-spring-boot-postgresql/)
+
+> [Angular 13 + Spring Boot + H2 Embedded Database example](https://www.bezkoder.com/spring-boot-angular-13-crud/)
+
+> [Angular 13 + Spring Boot + MySQL example](https://www.bezkoder.com/spring-boot-angular-13-mysql/)
+
+> [Angular 13 + Spring Boot + PostgreSQL example](https://www.bezkoder.com/spring-boot-angular-13-postgresql/)
+
+> [Angular 14 + Spring Boot + H2 Embedded Database example](https://www.bezkoder.com/spring-boot-angular-14-crud/)
+
+> [Angular 14 + Spring Boot + MySQL example](https://www.bezkoder.com/spring-boot-angular-14-mysql/)
+
+> [Angular 14 + Spring Boot + PostgreSQL example](https://www.bezkoder.com/spring-boot-angular-14-postgresql/)
+
+> [Angular 15 + Spring Boot + H2 Embedded Database example](https://www.bezkoder.com/spring-boot-angular-15-crud/)
+
+> [Angular 15 + Spring Boot + MySQL example](https://www.bezkoder.com/spring-boot-angular-15-mysql/)
+
+> [Angular 15 + Spring Boot + PostgreSQL example](https://www.bezkoder.com/spring-boot-angular-15-postgresql/)
+
+> [Angular 16 + Spring Boot + H2 Embedded Database example](https://www.bezkoder.com/spring-boot-angular-16-crud/)
+
+> [Angular 16 + Spring Boot + MySQL example](https://www.bezkoder.com/spring-boot-angular-16-mysql/)
+
+> [Angular 16 + Spring Boot + PostgreSQL example](https://www.bezkoder.com/spring-boot-angular-16-postgresql/)
+
+> [Angular 17 + Spring Boot + H2 Embedded Database example](https://www.bezkoder.com/spring-boot-angular-17-crud/)
+
+> [Angular 17 + Spring Boot + MySQL example](https://www.bezkoder.com/spring-boot-angular-17-mysql/)
+
+> [Angular 17 + Spring Boot + PostgreSQL example](https://www.bezkoder.com/spring-boot-angular-17-postgresql/)
+
+> [React + Spring Boot + MySQL example](https://bezkoder.com/react-spring-boot-crud/)
+
+> [React + Spring Boot + PostgreSQL example](https://bezkoder.com/spring-boot-react-postgresql/)
+
+> [React + Spring Boot + MongoDB example](https://bezkoder.com/react-spring-boot-mongodb/)
+
+Run both Back-end & Front-end in one place:
+> [Integrate Angular with Spring Boot Rest API](https://bezkoder.com/integrate-angular-spring-boot/)
+
+> [Integrate React.js with Spring Boot Rest API](https://bezkoder.com/integrate-reactjs-spring-boot/)
+
+> [Integrate Vue.js with Spring Boot Rest API](https://bezkoder.com/integrate-vue-spring-boot/)

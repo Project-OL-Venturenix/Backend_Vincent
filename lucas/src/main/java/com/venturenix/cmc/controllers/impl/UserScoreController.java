@@ -110,6 +110,7 @@ public class UserScoreController implements UserScoreOperation {
       _userscore.setUserid(userscore.getUserid());
       _userscore.setQuestionid(userscore.getQuestionid());
       _userscore.setTestcasescoretotal(userscore.getTestcasescoretotal());
+      _userscore.setTestcasepasstotal(userscore.getTestcasepasstotal());
       _userscore.setStatus(userscore.getStatus());
       _userscore.setUpdateddate(java.time.LocalDateTime.now());
       _userscore.setUpdatedby(userscore.getUpdatedby());
@@ -222,7 +223,7 @@ public class UserScoreController implements UserScoreOperation {
       }
 
       String questionKey = "Q" + userScore.getQuestionid();
-      int score = userScore.getTestCasePasstotal();
+      int score = userScore.getTestcasepasstotal();
 
       UserScoreDTO.UserResult userResult = userResultMap.get(userScore.getUserid());
       userResult.getScore().put(questionKey, score);

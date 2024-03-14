@@ -27,6 +27,7 @@ public class QuestionRequest {
   // @Nonnull
   private String methodSignatures;
 
+  private Integer targetcompletetime;
   private LocalDateTime createddate;
   private Integer createdby;
   private LocalDateTime updateddate;

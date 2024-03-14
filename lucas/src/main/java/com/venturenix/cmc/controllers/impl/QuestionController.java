@@ -75,6 +75,7 @@ public class QuestionController implements QuestionOperation {
         .question(questionRequest.getQuestion())//
         .testComputeCase(questionRequest.getTestComputeCase())//
         .methodSignatures(questionRequest.getMethodSignatures())//
+        .targetcompletetime(questionRequest.getTargetcompletetime())//
         .createddate(java.time.LocalDateTime.now())//
         .createdby(questionRequest.getCreatedby())//
         .updateddate(java.time.LocalDateTime.now())//
@@ -128,6 +129,7 @@ public class QuestionController implements QuestionOperation {
           .code(testCaseService.generateFullCode(questionId))//
           .mainMethod(testCaseService.generateMainMethod(questionId) + //
               testCaseService.generateTestCase(testCases, questionId))//
+          .targetcompletetime(questionData.get().getTargetcompletetime())
           .createdby(questionData.get().getCreatedby())//
           .updateddate(questionData.get().getUpdateddate())//
           .updatedby(questionData.get().getUpdatedby())//
@@ -170,6 +172,7 @@ public class QuestionController implements QuestionOperation {
           // + testcaseData.get().generateEndCodeBlock())//
           .mainMethod(testCaseService.generateMainMethod(questionId) + //
               testCaseService.generateTestCase(testCases, questionId))//
+          .targetcompletetime(questionData.get().getTargetcompletetime())
           .createdby(questionData.get().getCreatedby())//
           .updateddate(questionData.get().getUpdateddate())//
           .updatedby(questionData.get().getUpdatedby())//
@@ -187,6 +190,7 @@ public class QuestionController implements QuestionOperation {
     if (questionData.isPresent()) {
       QuestionBank _question = questionData.get();
       _question.setQuestion(question.getQuestion());
+      _question.setTargetcompletetime(question.getTargetcompletetime());
       _question.setCreateddate(LocalDateTime.now());
       _question.setCreatedby(question.getCreatedby());
       _question.setUpdateddate(LocalDateTime.now());

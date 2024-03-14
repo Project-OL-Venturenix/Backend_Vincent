@@ -11,7 +11,7 @@ public class EventResponse {
   private Long id; 
   private String name;
   private String status;
-  
+  private LocalDateTime targetenddate;
   private LocalDateTime createddate;
 
   
@@ -24,11 +24,12 @@ public class EventResponse {
   private Integer updatedby;
   
   
-  public EventResponse(String accessToken, Long id, String name, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
+  public EventResponse(String accessToken, Long id, String name, String status, LocalDateTime targetenddate,LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
     this.token = accessToken;
     this.id = id;
     this.name = name;
     this.status = status;
+    this.targetenddate = targetenddate;
     this.createddate = createddate;
     this.createdby = createdby;
     this.updateddate = updateddate;
@@ -74,6 +75,14 @@ public class EventResponse {
 
   public void setStatus(String status) {
     this.status = status;
+  }
+
+  public LocalDateTime getTargetenddate() {
+    return targetenddate;
+  }
+
+  public void setTargetenddate(LocalDateTime targetenddate) {
+    this.targetenddate = targetenddate;
   }
 
 public Integer getCreatedby() {

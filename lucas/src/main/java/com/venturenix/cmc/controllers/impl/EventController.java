@@ -47,9 +47,14 @@ public class EventController implements EventOperation {
   EventRepository eventRepository;
 
   public ResponseEntity<?> addEvent(EventRequest eventRequest) {
-    Event event = new Event(eventRequest.getName(), eventRequest.getStatus(),
-        java.time.LocalDateTime.now(), eventRequest.getCreatedby(),
-        java.time.LocalDateTime.now(), eventRequest.getUpdatedby());
+    Event event = new Event(
+        eventRequest.getName(), 
+        eventRequest.getStatus(),
+        eventRequest.getTargetenddate(),
+        java.time.LocalDateTime.now(), 
+        eventRequest.getCreatedby(),
+        java.time.LocalDateTime.now(), 
+        eventRequest.getUpdatedby());
     eventRepository.save(event);
     return ResponseEntity.ok(new MessageResponse("Add Event successfully!"));
 
@@ -86,6 +91,7 @@ public class EventController implements EventOperation {
       Event _event = eventData.get();
       _event.setName(event.getName());
       _event.setStatus(event.getStatus());
+      _event.setTargetenddate(event.getTargetenddate());
       _event.setUpdateddate(java.time.LocalDateTime.now());
       _event.setUpdatedby(event.getUpdatedby());
       return new ResponseEntity<>(eventRepository.save(_event), HttpStatus.OK);

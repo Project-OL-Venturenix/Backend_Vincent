@@ -14,10 +14,13 @@ public class EventRequest {
   private String name;
 
 
+
   @NotBlank
   private String status;
 
   
+  private LocalDateTime targetenddate;
+
   private LocalDateTime createddate;
 
   
@@ -44,6 +47,15 @@ public class EventRequest {
   public void setStatus(String status) {
     this.status = status;
   }
+
+   public LocalDateTime getTargetenddate() {
+    return targetenddate;
+  }
+
+  public void setTargetenddate(LocalDateTime targetenddate) {
+    this.targetenddate = targetenddate;
+  }
+
  public Integer getCreatedby() {
     return createdby;
   }

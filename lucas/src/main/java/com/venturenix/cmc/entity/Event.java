@@ -20,7 +20,8 @@ public class Event {
   @Size(min = 1, max = 20)
   private String status;
 
-  
+  private LocalDateTime targetenddate;
+
   private LocalDateTime createddate;
 
   //@Size(min = 1, max = 20)
@@ -36,9 +37,10 @@ public class Event {
 
   }
 
-  public Event(String name, String status, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
+  public Event(String name, String status, LocalDateTime targetenddate, LocalDateTime createddate, Integer createdby, LocalDateTime updateddate, Integer updatedby) {
     this.name = name;
     this.status = status;
+    this.targetenddate = targetenddate;
     this.createddate = createddate;
     this.createdby = createdby;
     this.updateddate = updateddate;
@@ -70,6 +72,15 @@ public class Event {
   public void setStatus(String status) {
     this.status = status;
   }
+
+  public LocalDateTime getTargetenddate() {
+    return targetenddate;
+  }
+
+  public void setTargetenddate(LocalDateTime targetenddate) {
+    this.targetenddate = targetenddate;
+  }
+
 
   public Integer getCreatedby() {
     return createdby;
@@ -105,7 +116,7 @@ public class Event {
 
   @Override
   public String toString() {
-    return "Event [id=" + id + ", name=" + name + ", status=" + status + ", createddate=" + createddate + ", createdby=" + createdby + ", updateddate=" + updateddate + ", updatedby" + updatedby + "]";
+    return "Event [id=" + id + ", name=" + name + ", status=" + status + ", targetenddate =" + targetenddate + "createddate=" + createddate + ", createdby=" + createdby + ", updateddate=" + updateddate + ", updatedby" + updatedby + "]";
   }
 
 }

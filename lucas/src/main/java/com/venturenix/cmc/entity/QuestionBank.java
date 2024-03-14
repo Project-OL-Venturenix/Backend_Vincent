@@ -39,6 +39,9 @@ public class QuestionBank implements Serializable {
   @Nonnull
   private String methodSignatures;
 
+  @Nonnull
+  private Integer targetcompletetime;
+
   private LocalDateTime createddate;
   private Integer createdby;
   private LocalDateTime updateddate;

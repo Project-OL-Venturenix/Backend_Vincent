@@ -5,6 +5,7 @@ import java.util.Map;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -23,7 +24,7 @@ public class GroupScoreDTO {
     public static class GroupResult {
         private String name;
         private Map<String, Integer> score;
-
+        private Map<String, LocalDateTime> submittime;
         public GroupResult() {
 
         }

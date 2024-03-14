@@ -11,7 +11,7 @@ import java.util.List;
 public interface UserTestCaseRepository extends JpaRepository<UserTestCase, Long> {
 
     Optional<UserTestCase> findById(Long id);
-
+    List<UserTestCase> findByEventid(Long id);
     List<UserTestCase> findAll();
     
     

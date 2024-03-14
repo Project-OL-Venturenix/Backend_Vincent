@@ -12,7 +12,7 @@ public interface GroupTestCaseRepository extends JpaRepository<GroupTestCase, Lo
 
     Optional<GroupTestCase> findById(Long id);
 
-    
+    List<GroupTestCase> findByEventid(Long id);
 
     List<GroupTestCase> findAll();
     

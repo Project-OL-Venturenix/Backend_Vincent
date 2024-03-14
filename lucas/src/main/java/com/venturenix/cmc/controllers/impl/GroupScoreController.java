@@ -24,12 +24,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.venturenix.cmc.controllers.GroupScoreOperation;
 import com.venturenix.cmc.entity.GroupScore;
 import com.venturenix.cmc.entity.Group;
+import com.venturenix.cmc.entity.GroupTestCase;
 import com.venturenix.cmc.payload.request.GroupScoreRequest;
 import com.venturenix.cmc.payload.response.MessageResponse;
 import com.venturenix.cmc.repository.GroupScoreRepository;
 import com.venturenix.cmc.payload.response.GroupScoreDTO;
 import com.venturenix.cmc.repository.RoleRepository;
 import com.venturenix.cmc.repository.UserRepository;
+import com.venturenix.cmc.repository.GroupTestCaseRepository;
 import com.venturenix.cmc.security.jwt.JwtUtils;
 
 import com.venturenix.cmc.repository.EventRepository;
@@ -53,6 +55,9 @@ public class GroupScoreController implements GroupScoreOperation {
 
   @Autowired
   RoleRepository roleRepository;
+
+  @Autowired
+  GroupTestCaseRepository grouptestcaseRepository;
 
   @Autowired
   PasswordEncoder encoder;
@@ -220,18 +225,37 @@ public ResponseEntity<GroupScore> updateGroupScore(long id,
 
     for (GroupScore groupScore : target) {
       Optional<Group> groupOptional = groupRepository.findById(groupScore.getGroupid());
+      Long questionid = groupScore.getQuestionid();
+      GroupScoreDTO.GroupResult groupResult = new GroupScoreDTO.GroupResult();
       if (!groupResultMap.containsKey(groupScore.getGroupid())) {
-        GroupScoreDTO.GroupResult groupResult = new GroupScoreDTO.GroupResult();
+        //GroupScoreDTO.GroupResult groupResult = new GroupScoreDTO.GroupResult();
         groupResult.setName(groupOptional.get().getName()); // Assuming group id as name
         groupResult.setScore(new HashMap<>());
         groupResultMap.put(groupScore.getGroupid(), groupResult);
       }
 
+      List<GroupTestCase> target1 = grouptestcaseRepository.findByEventid(eventId);
+      LocalDateTime submittime = java.time.LocalDateTime.now();
+        for (GroupTestCase groupTestCase : target1) {
+ 
+              System.out.println("!! groupTestCase.getQuestionid() = " + groupTestCase.getQuestionid());
+              System.out.println("!! questionid = " + questionid);
+
+          if (groupTestCase.getQuestionid() == questionid) {
+              groupResult.setSubmittime(new HashMap<>());
+              submittime = groupTestCase.getCreateddate();
+              System.out.println("submittime = " + submittime);
+            break; 
+          }
+          
+        }
+
       String questionKey = "Q" + groupScore.getQuestionid();
       int score = groupScore.getTestCasePasstotal();
 
-      GroupScoreDTO.GroupResult groupResult = groupResultMap.get(groupScore.getGroupid());
+      groupResult = groupResultMap.get(groupScore.getGroupid());
       groupResult.getScore().put(questionKey, score);
+      groupResult.getSubmittime().put(questionKey, submittime);
     }
 
     List<GroupScoreDTO.GroupResult> groupResults = new ArrayList<>(groupResultMap.values());

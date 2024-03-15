@@ -6,7 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import java.time.LocalDateTime;
-
+import java.io.*; 
+import java.util.*; 
 @Data
 @Builder
 @AllArgsConstructor
@@ -15,7 +16,7 @@ public class UserScoreDTO {
     private List<UserResult> result;
 
     public UserScoreDTO() {
-
+        
     }
 
     @Data

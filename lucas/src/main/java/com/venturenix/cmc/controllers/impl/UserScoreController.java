@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.io.*;
+import java.lang.*;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.venturenix.cmc.controllers.UserScoreOperation;
 import com.venturenix.cmc.entity.User;
 import com.venturenix.cmc.entity.UserScore;
-import com.venturenix.cmc.entity.UserTestCase;
+import com.venturenix.cmc.entity.UserQuestionSubmit;
 import com.venturenix.cmc.payload.request.UserScoreRequest;
 import com.venturenix.cmc.payload.response.MessageResponse;
 import com.venturenix.cmc.payload.response.UserScoreDTO;
@@ -27,7 +30,7 @@ import com.venturenix.cmc.repository.QuestionRepository;
 import com.venturenix.cmc.repository.RoleRepository;
 import com.venturenix.cmc.repository.UserRepository;
 import com.venturenix.cmc.repository.UserScoreRepository;
-import com.venturenix.cmc.repository.UserTestCaseRepository;
+import com.venturenix.cmc.repository.UserQuestionSubmitRepository;
 import com.venturenix.cmc.security.jwt.JwtUtils;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -45,7 +48,7 @@ public class UserScoreController implements UserScoreOperation {
   RoleRepository roleRepository;
 
   @Autowired
-  UserTestCaseRepository usertestcaseRepository;
+  UserQuestionSubmitRepository userquestionsubmitRepository;
 
   @Autowired
   PasswordEncoder encoder;
@@ -211,67 +214,51 @@ public class UserScoreController implements UserScoreOperation {
 
   // return ResponseEntity.ok(result);
   // }
-  @Override
-  public ResponseEntity<UserScoreDTO> getUserTestCaseByEventId(String eventid) {
+@Override
+public ResponseEntity<UserScoreDTO> getUserTestCaseByEventId(String eventid) {
     Long eventId = Long.valueOf(eventid);
     List<UserScore> target = userscoreRepository.findByEventid(eventId);
 
-
-
     Map<Long, UserScoreDTO.UserResult> userResultMap = new HashMap<>();
 
-    
     for (UserScore userScore : target) {
-      Optional<User> userOptional = userRepository.findById(userScore.getUserid());
-      
-      Long questionid = userScore.getQuestionid();
-      System.out.println("## Before userScore.getQuestionid() = " + questionid);
-      
-      //System.out.println("count = " + !userResultMap.containsKey(userScore.getUserid()));
-      
-      UserScoreDTO.UserResult userResult = new UserScoreDTO.UserResult();
-      if (!userResultMap.containsKey(userScore.getUserid()) ) {
-        
-        userResult.setName(userOptional.get().getUsername()); // Assuming user id as name
-        userResult.setScore(new HashMap<>());
-        userResultMap.put(userScore.getUserid(), userResult);
-        
-      }
+        Optional<User> userOptional = userRepository.findById(userScore.getUserid());
+        Long questionId = userScore.getQuestionid();
+        Long userId = userScore.getUserid();
 
-      List<UserTestCase> target1 = usertestcaseRepository.findByEventid(eventId);
-      LocalDateTime submittime = java.time.LocalDateTime.now();
-        for (UserTestCase userTestCase : target1) {
- 
-              System.out.println("!! userTestCase.getQuestionid() = " + userTestCase.getQuestionid());
-              System.out.println("!! questionid = " + questionid);
-
-          if (userTestCase.getQuestionid() == questionid) {
-              userResult.setSubmittime(new HashMap<>());
-              submittime = userTestCase.getCreateddate();
-              System.out.println("submittime = " + submittime);
-            break; 
-          }
-          
+        UserScoreDTO.UserResult userResult = userResultMap.getOrDefault(userId, new UserScoreDTO.UserResult());
+        if (!userResultMap.containsKey(userId)) {
+            userResult.setName(userOptional.orElse(new User()).getUsername()); // Assuming user id as name
+            userResult.setScore(new HashMap<>());
+            userResult.setSubmittime(new HashMap<>());
+            userResultMap.put(userId, userResult);
         }
 
+        List<UserQuestionSubmit> target1 = userquestionsubmitRepository.findByEventid(eventId, questionId, userId);
+        //LocalDateTime submittime = LocalDateTime.now();
+        LocalDateTime submittime = null;
+        for (UserQuestionSubmit userQuestionSubmit : target1) {
+            if (userQuestionSubmit.getQuestionid() == questionId) {
+                //userResult.setSubmittime(new HashMap<>());
+                submittime = userQuestionSubmit.getSubmittime();
+                break;
+            }
+        }
 
-      String questionKey = "Q" + userScore.getQuestionid();
-      int score = userScore.getTestcasepasstotal();
+        String questionKey = "Q" + userScore.getQuestionid();
+        int score = userScore.getTestcasepasstotal();
 
-      userResult = userResultMap.get(userScore.getUserid());
-      userResult.getScore().put(questionKey, score);
-      userResult.getSubmittime().put(questionKey, submittime);
-
-      
+        userResult = userResultMap.get(userId);
+        userResult.getScore().put(questionKey, score);
+        userResult.getSubmittime().put(questionKey, submittime);
     }
-  
+
     List<UserScoreDTO.UserResult> userResults = new ArrayList<>(userResultMap.values());
 
     UserScoreDTO userScoreDTO = new UserScoreDTO();
     userScoreDTO.setEventId(eventId.intValue());
     userScoreDTO.setResult(userResults);
-  
-    return ResponseEntity.ok(userScoreDTO);
-  }
 
+    return ResponseEntity.ok(userScoreDTO);
+}
 }

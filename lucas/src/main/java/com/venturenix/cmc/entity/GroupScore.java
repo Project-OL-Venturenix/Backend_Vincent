@@ -84,7 +84,7 @@ public class GroupScore {
     this.questionid = questionid;
   }
 
-  public Integer getTestCasePasstotal() {
+  public Integer getTestcasepasstotal() {
     return testcasePassTotal;
   }
 
